@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Converting Raymarine FSH files to GPX"
+date: 2012-09-23T19:28:00-07:00
+comments: false
+categories:
+ - sailing
+ - boating
+ - gps
+---
+
+<div class='post'>
+I've always been a bit annoyed by not being able to convert data from my Raymarine C-Series chartplotter into an open and accessible format, such as GPX. Although there are some tools available that support the FSH files written by these chartplotters, they are either not-free or very limited - such as not supporting all data (such as tracks), or by only running on Windows.<br /><div><br /></div><div>I want to be able to back up the data (waypoints, routes, and tracks) on my chartplotter and load it into <a href="http://opencpn.org/">OpenCPN</a>, so I started to write a python script to do so, <a href="https://github.com/scotte/fsh2gpx">available on github</a>. In it's current form it's very rough but exports waypoints and routes to GPX which I can then import into OpenCPN.</div><div><br /></div><div>The script doesn't yet support tracks, nor is it very resilient or stable in decoding values, but it's a start. Since no other freely available, cross-platform solution exists for converting FSH files, this is a free, open-source project licensed under the GPL.</div><div><br /></div><div>Long term, once the FSH format is fully decoded, the plan is to turn this into a <a href="https://www.gpsbabel.org/">GPS Babel</a> module. Until then, give this Python script a try.</div><div><div><br /></div></div><div class="blogger-post-footer">Please visit our site at http://sail2software.com. Thanks!</div></div>
+<h2>Comments</h2>
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Phil Mucci</div>
+<div class='content'>
+Hi there. I&#39;m very interested in the FSH converter and would like to help you progress it further. I own both an A70D and E7D and am a long time CS guy. I took a look at the script you wrote - seems like it does almost all of it... Wondering if there&#39;s a way we can work to get it further along and get it into GPSBabel or OpenCPN. Send me an email. -Phil<br /></div>
+</div>
+</div>
