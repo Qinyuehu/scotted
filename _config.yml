@@ -5,9 +5,9 @@
 url: http://sail2software.com
 title: Sail-2-Software
 subtitle: ": A technology blog... Sort of! Everything from sailing to software."
-author: Scott
+author: ScottE
 simple_search: https://duckduckgo.com/
-description:
+description: "A technology blog... Sort of! Everything from sailing to software"
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -67,7 +67,7 @@ default_asides: [asides/recent_posts.html, asides/github.html]
 github_user: scotte
 github_repo_count: 0
 github_show_profile_link: true
-github_skip_forks: true
+github_skip_forks: false
 
 # Twitter
 twitter_user:
