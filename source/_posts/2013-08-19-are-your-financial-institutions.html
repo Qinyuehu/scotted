@@ -8,5 +8,305 @@ categories:
  - software
 ---
 
-<div class='post'>
-If so, you are lucky - because mine sure aren't. Seems like every bank or other financial institution that I do business with is about a decade or so behind in web technology. They have very, very long and infrequent software development cycles, don't support recent (much less latest) client technologies, and have "major new feature releases" that are pretty darn uninspiring.<br /><div><br /></div><div>I can understand the importance of moving slow when it comes to people's finances, but it seems they don't really have a distinction between basic usability and those things that could result in serious financial exposure. In these days of distributed systems there's no excuse to muddle UIs with the backend.<br /><div><br /></div><div>I have three quick stories from the last year or so across two different financial institutions. They will remain nameless, although one of them (which comprises the first two stories) I'm in the process of closing accounts down, and in the third I have a great personal relationship with individual people - and even though their technology is pretty bad, the institution itself is excellent.</div><div><br /></div><h2>Story #1 - Please Downgrade Your Browser</h2><div>So I've been using the institution's website several times a week with no problem, then suddenly it stops working from Chrome - I was unable to login, it would just redirect me to the login page. Maybe Chrome updated, I'm not really sure (my Linux distribution handles updates so well I seldom pay any attention into what get's updated). So, I try Firefox&nbsp;and it works fine, I am able to login to my account, so I fire off an email to customer support to let them know Chrome 17 (this is May 2012) doesn't work with their site. Following is the response:</div><div><br /></div><span style="color: cyan; font-family: Courier New, Courier, monospace;">I apologize that you have encountered this difficulty. Unfortunately, higher versions of chrome are unsupported with our website. When a browser version is unsupported the functionality will be intermittent at best. Sometimes it will work fine for months, and then one day stop working all together.<br /><br />In order to continue using Chrome without issue, please use one of the following supported versions:<br /><br />· Chrome: Versions 11 or 12<br /><br />Once again, I do apologize for any inconvenience this may have caused. We are continually working on updating our supported browsers, but at this time those are the only truly supported versions.</span></div><div><span style="font-family: Courier New, Courier, monospace;"><br /></span><div>Realize that the institution's website doesn't do anything complex - absolutely nothing that an update from Chrome 16 to 17 should cause inability to login. It's only because of using non-w3c compliant practices that this would happen in the first place, but it's absolute madness to suggest I would downgrade back 5 or 6 versions of Chrome! I'm not even sure how I would do that, does Google even have archives where you can download old versions?</div><div><br /></div><div>At least they didn't tell me to use IE. That's the response I've gotten from a number of customer support interactions for various things over the years, even after telling them I'm not on Windows.</div><div><br /></div><div>I don't remember how long it was before I could use the site again in Chrome, but it was at least several months, and I received no notification or follow-up, I just tried one day and it worked.</div><div><br /></div><div><b><span style="color: orange;">How would a more modern site deal with this? First of all, they would be testing not only the latest stable versions of browsers, but the bleeding edge, and be prepared. They would also be agile with the ability to test and push new releases daily, not monthly, to resolve fundamental usability issues. Good customer support would also dictate closing the loop with the customer, rather than leaving them hanging.</span></b></div><div><b><br /></b></div><h2>Story #2 - We Will Resolve This In 48 Hours</h2><div>My paycheck was deposited into one institution, then partially transferred to another institution (the one in story #1) via an inter-bank ACH transfer initiated by the second institution. This had been working fine for a couple of years, then one day my transfer doesn't go through. Did they notify me of the failure? Nope. Did the account transfer page show anything interesting? Nope - the transfer just disappeared, unlike past transfers which had a history, it just vanished - like it never happened.</div><div><br /></div><div>So, being the reasonable person that I am, I called customer service and opened a ticket with them. They said they would look into it, and it should be resolved in 48 hours. One month later they resolved the issue. You read that right, it took a month for their 48 hour fix. For the first 3 weeks I called them several times a week for a status, and their answer was always 48 hours - even after we were in this situation for 3 weeks. All they would tell me is that they were "investigating the issue" and that it would be resolved soon. Not knowing what was happening, and assuming that they would get the transfer through "real soon now" we ended up going low on funds in that institution and were basically unable to use our account. If I had known it would be weeks I would have deposited via other means, but when I'm told it's only a couple of days because they are nearly done with the fix I guess I was overly optimistic. To make matters worse, when I was concerned about automatic, scheduled payments, they told me there wouldn't be a problem because the problem was on their end - fool me once, shame on you... It was a problem because those payments still went through, even though they told me all was fine. As it turns out, they finally admitted it was a software bug in their ACH system, but for this institution it was too late as we had already taken our banking elsewhere.</div><div><br /></div><div><b><span style="color: orange;">How would a more modern company deal with this? This isn't strictly a site issue, but it was a back-end software problem, and repeatedly telling me it would be resolved in 2 days when in fact it would take 30 did nothing to help. I'm sure they didn't actually know, but better to give the customer a pessimistic answer than an unreasonably&nbsp;optimistic&nbsp;one. I arranged my finances based on what they told me and would have reacted completely differently otherwise. Additionally, I had to keep calling them for status, as they would never call me back after the promised 48 hours. They finally did call me back when it resolved, but by then it didn't matter anymore.</span></b></div><div><b><br /></b></div><h2>Story #3 - &nbsp;We Are Experiencing Known Performance Issues</h2></div><div>On a Saturday morning I logged into my account at this institution to check some activity. At least, that's what I was trying to do - the institution's landing page didn't mention a thing, and it was only after logging in that they displayed a page that the site was down for maintenance for the whole weekend.</div><div><br /></div><div>Really? Down for the whole weekend for an upgrade? This is 2013! &nbsp;And with zero notification in advance that the site would be down (they have my email address). And I had to login to even find out.</div><div><br /></div><div>The last couple of companies I've worked at have prided themselves on the ability to do live rolling upgrades with no site outage. This is not a hard thing to do these days with a good architecture. Being down for 2 days would mean going out of business for a lot of places, but for a financial institution it's considered normal, I guess.</div><div><br /></div><div>OK great, so now it's Monday morning and I try to login again. Right, so the page times out. I reload, and after several minutes, I finally get a page. Clicking on anything results in a similar pattern - either a timeout or page load time of several minutes. I tried to use the online feedback form, but that timed out too.</div><div><br /></div><div>A call to customer service resulted in a long wait time with a message that they were aware of site performance issues due to huge demand for the upgraded site. I guess that's one way to put it, but clearly they did insufficient testing and weren't ready for Monday morning. There was no reason for me to waste support's time at that point, so I hung up and tried to login again later.</div><div><br /></div><div>How great was the new site? It sucks just as bad as the old one did. It's really pretty bad.</div><div><br /></div><div><b><span style="color: orange;">How would a more agile company deal with this? They would test things in advance, do rolling updates rather than having a site outage for 2+ days, and route just a portion of traffic to the new site until being comfortable that all is well prior to a full cut-over.</span></b></div><div><br /></div><div>What's the lesson from all of this? Financial institution IT is well behind the times and could learn a lot of things from agile companies who release continually. Again, I understand the financial risk, but a good architecture would insulate those details from the website and it's usability for customers.</div></div>
+  <div class='post'>
+    If so, you are lucky - because mine sure aren't. Seems like
+    every bank or other financial institution that I do business
+    with is about a decade or so behind in web technology. They
+    have very, very long and infrequent software development
+    cycles, don't support recent (much less latest) client
+    technologies, and have "major new feature releases" that are
+    pretty darn uninspiring.<br>
+
+    <div>
+      <br>
+    </div>
+
+    <div>
+      I can understand the importance of moving slow when it comes
+      to people's finances, but it seems they don't really have a
+      distinction between basic usability and those things that
+      could result in serious financial exposure. In these days of
+      distributed systems there's no excuse to muddle UIs with the
+      backend.<br>
+
+      <div>
+        <br>
+      </div>
+
+      <div>
+        I have three quick stories from the last year or so across
+        two different financial institutions. They will remain
+        nameless, although one of them (which comprises the first
+        two stories) I'm in the process of closing accounts down,
+        and in the third I have a great personal relationship with
+        individual people - and even though their technology is
+        pretty bad, the institution itself is excellent.
+      </div>
+
+      <div>
+        <br>
+      </div>
+
+      <h2>Story #1 - Please Downgrade Your Browser</h2>
+
+      <div>
+        So I've been using the institution's website several times
+        a week with no problem, then suddenly it stops working from
+        Chrome - I was unable to login, it would just redirect me
+        to the login page. Maybe Chrome updated, I'm not really
+        sure (my Linux distribution handles updates so well I
+        seldom pay any attention into what get's updated). So, I
+        try Firefox&nbsp;and it works fine, I am able to login to
+        my account, so I fire off an email to customer support to
+        let them know Chrome 17 (this is May 2012) doesn't work
+        with their site. Following is the response:
+      </div>
+
+      <div>
+        <br>
+      </div><span style=
+      "color: cyan; font-family: Courier New, Courier, monospace;">I
+      apologize that you have encountered this difficulty.
+      Unfortunately, higher versions of chrome are unsupported with
+      our website. When a browser version is unsupported the
+      functionality will be intermittent at best. Sometimes it will
+      work fine for months, and then one day stop working all
+      together.<br>
+      <br>
+      In order to continue using Chrome without issue, please use
+      one of the following supported versions:<br>
+      <br>
+      &Acirc;&middot; Chrome: Versions 11 or 12<br>
+      <br>
+      Once again, I do apologize for any inconvenience this may
+      have caused. We are continually working on updating our
+      supported browsers, but at this time those are the only truly
+      supported versions.</span>
+    </div>
+
+    <div>
+      <span style=
+      "font-family: Courier New, Courier, monospace;"><br></span>
+
+      <div>
+        Realize that the institution's website doesn't do anything
+        complex - absolutely nothing that an update from Chrome 16
+        to 17 should cause inability to login. It's only because of
+        using non-w3c compliant practices that this would happen in
+        the first place, but it's absolute madness to suggest I
+        would downgrade back 5 or 6 versions of Chrome! I'm not
+        even sure how I would do that, does Google even have
+        archives where you can download old versions?
+      </div>
+
+      <div>
+        <br>
+      </div>
+
+      <div>
+        At least they didn't tell me to use IE. That's the response
+        I've gotten from a number of customer support interactions
+        for various things over the years, even after telling them
+        I'm not on Windows.
+      </div>
+
+      <div>
+        <br>
+      </div>
+
+      <div>
+        I don't remember how long it was before I could use the
+        site again in Chrome, but it was at least several months,
+        and I received no notification or follow-up, I just tried
+        one day and it worked.
+      </div>
+
+      <div>
+        <br>
+      </div>
+
+      <div>
+        <b><span style="color: orange;">How would a more modern
+        site deal with this? First of all, they would be testing
+        not only the latest stable versions of browsers, but the
+        bleeding edge, and be prepared. They would also be agile
+        with the ability to test and push new releases daily, not
+        monthly, to resolve fundamental usability issues. Good
+        customer support would also dictate closing the loop with
+        the customer, rather than leaving them hanging.</span></b>
+      </div>
+
+      <div>
+        <b><br></b>
+      </div>
+
+      <h2>Story #2 - We Will Resolve This In 48 Hours</h2>
+
+      <div>
+        My paycheck was deposited into one institution, then
+        partially transferred to another institution (the one in
+        story #1) via an inter-bank ACH transfer initiated by the
+        second institution. This had been working fine for a couple
+        of years, then one day my transfer doesn't go through. Did
+        they notify me of the failure? Nope. Did the account
+        transfer page show anything interesting? Nope - the
+        transfer just disappeared, unlike past transfers which had
+        a history, it just vanished - like it never happened.
+      </div>
+
+      <div>
+        <br>
+      </div>
+
+      <div>
+        So, being the reasonable person that I am, I called
+        customer service and opened a ticket with them. They said
+        they would look into it, and it should be resolved in 48
+        hours. One month later they resolved the issue. You read
+        that right, it took a month for their 48 hour fix. For the
+        first 3 weeks I called them several times a week for a
+        status, and their answer was always 48 hours - even after
+        we were in this situation for 3 weeks. All they would tell
+        me is that they were "investigating the issue" and that it
+        would be resolved soon. Not knowing what was happening, and
+        assuming that they would get the transfer through "real
+        soon now" we ended up going low on funds in that
+        institution and were basically unable to use our account.
+        If I had known it would be weeks I would have deposited via
+        other means, but when I'm told it's only a couple of days
+        because they are nearly done with the fix I guess I was
+        overly optimistic. To make matters worse, when I was
+        concerned about automatic, scheduled payments, they told me
+        there wouldn't be a problem because the problem was on
+        their end - fool me once, shame on you... It was a problem
+        because those payments still went through, even though they
+        told me all was fine. As it turns out, they finally
+        admitted it was a software bug in their ACH system, but for
+        this institution it was too late as we had already taken
+        our banking elsewhere.
+      </div>
+
+      <div>
+        <br>
+      </div>
+
+      <div>
+        <b><span style="color: orange;">How would a more modern
+        company deal with this? This isn't strictly a site issue,
+        but it was a back-end software problem, and repeatedly
+        telling me it would be resolved in 2 days when in fact it
+        would take 30 did nothing to help. I'm sure they didn't
+        actually know, but better to give the customer a
+        pessimistic answer than an
+        unreasonably&nbsp;optimistic&nbsp;one. I arranged my
+        finances based on what they told me and would have reacted
+        completely differently otherwise. Additionally, I had to
+        keep calling them for status, as they would never call me
+        back after the promised 48 hours. They finally did call me
+        back when it resolved, but by then it didn't matter
+        anymore.</span></b>
+      </div>
+
+      <div>
+        <b><br></b>
+      </div>
+
+      <h2>Story #3 - &nbsp;We Are Experiencing Known Performance
+      Issues</h2>
+    </div>
+
+    <div>
+      On a Saturday morning I logged into my account at this
+      institution to check some activity. At least, that's what I
+      was trying to do - the institution's landing page didn't
+      mention a thing, and it was only after logging in that they
+      displayed a page that the site was down for maintenance for
+      the whole weekend.
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div>
+      Really? Down for the whole weekend for an upgrade? This is
+      2013! &nbsp;And with zero notification in advance that the
+      site would be down (they have my email address). And I had to
+      login to even find out.
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div>
+      The last couple of companies I've worked at have prided
+      themselves on the ability to do live rolling upgrades with no
+      site outage. This is not a hard thing to do these days with a
+      good architecture. Being down for 2 days would mean going out
+      of business for a lot of places, but for a financial
+      institution it's considered normal, I guess.
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div>
+      OK great, so now it's Monday morning and I try to login
+      again. Right, so the page times out. I reload, and after
+      several minutes, I finally get a page. Clicking on anything
+      results in a similar pattern - either a timeout or page load
+      time of several minutes. I tried to use the online feedback
+      form, but that timed out too.
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div>
+      A call to customer service resulted in a long wait time with
+      a message that they were aware of site performance issues due
+      to huge demand for the upgraded site. I guess that's one way
+      to put it, but clearly they did insufficient testing and
+      weren't ready for Monday morning. There was no reason for me
+      to waste support's time at that point, so I hung up and tried
+      to login again later.
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div>
+      How great was the new site? It sucks just as bad as the old
+      one did. It's really pretty bad.
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div>
+      <b><span style="color: orange;">How would a more agile
+      company deal with this? They would test things in advance, do
+      rolling updates rather than having a site outage for 2+ days,
+      and route just a portion of traffic to the new site until
+      being comfortable that all is well prior to a full
+      cut-over.</span></b>
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div>
+      What's the lesson from all of this? Financial institution IT
+      is well behind the times and could learn a lot of things from
+      agile companies who release continually. Again, I understand
+      the financial risk, but a good architecture would insulate
+      those details from the website and it's usability for
+      customers.
+    </div>
+  </div>

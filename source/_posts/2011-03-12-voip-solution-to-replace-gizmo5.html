@@ -8,5 +8,574 @@ categories:
  - communication
 ---
 
-<div class='post'>
-<b><i>NOTE: If you are serious about undertaking this solution, you probably want to read the updates at the bottom of this entry, as we have now switched over to Flowroute as a one-stop-shop (OK, two-stop-shop, with Google Voice).</i></b><br /><br />From November 2009 until last week we were using <a href="http://www.gizmo5.com/">Gizmo5 </a>plus <a href="http://voice.google.com/">Google Voice</a> for our home phone service, via a&nbsp;<a href="http://www.amazon.com/Linksys-PAP2T-NA/dp/B000Q7PDW2?ie=UTF8&amp;tag=sail2software-20&amp;link_code=btl&amp;camp=213689&amp;creative=392969" target="_blank">Linksys PAP2T-NA</a><img alt="" border="0" height="1" src="http://www.assoc-amazon.com/e/ir?t=sail2software-20&amp;l=btl&amp;camp=213689&amp;creative=392969&amp;o=1&amp;a=B000Q7PDW2" style="border: none !important; margin: 0px !important; padding: 0px !important;" width="1" />&nbsp;"SIP ATA" device. That last bit is a small piece of hardware that bridges a regular old (POTS) telephone to IP/ethernet.<br /><br /><br /><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">The Gizmo5 solution worked pretty well, a few technical issues here and there, but it was fairly stable. Inbound calls were free, as they were routed through Google Voice. Outbound calls were $0.01 per minute. Our total phone bill during that 16 months was $8.</div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><br /></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">Google acquired Gizmo5 about a year ago, and have now decided to kill the service. I was really disappointed to hear this decision, as I expected to see more SIP integration in Google Voice, not less. It seems clear that Google is not interested in SIP, though they are supporting XMPP - as used in Google Talk. And just to close up the history on this, Grand Central was the original company that Google bought and became Google Voice (GV).</div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><br /></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">The old solution was pretty simple to setup, as Google provided the integration between Gizmo5 and Google Voice via GV settings. Basically, you just added your Gizmo5 number to GV, then configured the ATA to talk to Gizmo5's SIP servers. Then plug in a phone and make some calls. Super easy.</div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><br /></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">The new solution? Well it's quite a bit more complex.</div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><br /></div><br />First, a few telephony acronyms for the uninitiated.<br /><ul><li>VOIP -&nbsp;<b>Voice Over Internet Protocol</b>. Sort of a misnomer, as it's not really a protocol, just a classification.</li><li>SIP -&nbsp;<b>Session Initiation Protocol</b>. This is the standard VOIP protocol that devices use to establish phone calls over the internet.</li><li>ATA -&nbsp;<b>Analog Terminal Adapter</b>. The device that an old analog phone plugs into to bridge to a VOIP protocol. An alternative would be using an IP phone.</li><li>POTS -&nbsp;<b>Plain Old Telephone Service</b>. The analog phone system, in use well over 100 years, amazing!</li><li>DID - <b>Direct Inward Dial</b>. The ability for someone to call your VOIP phone from a regular phone.</li><li>CID - <b>CallerID</b>. You know what this is.</li><li>PBX - <b>Private Branch eXchange</b>. Essentially a small, private phone company. All the phones plug into this (either directly or virtually via a network), and it handles all the routing between calls or trunking to an external phone service (for example, calling a regular phone). PBXs provide other features, such as voice mail, caller ID, and management of IP phones - to provide a few examples.</li><li>PSTN - <b>Public Switched Telephone Network</b>. This is the huge network of wires, switches, central offices, and so forth that give us POTS.</li></ul>The new solution consists of the following bits and pieces:<br /><ul><li><a href="http://www.amazon.com/Linksys-PAP2T-NA/dp/B000Q7PDW2?ie=UTF8&amp;tag=sail2software-20&amp;link_code=btl&amp;camp=213689&amp;creative=392969" target="_blank">Linksys ATA</a><img alt="" border="0" height="1" src="http://www.assoc-amazon.com/e/ir?t=sail2software-20&amp;l=btl&amp;camp=213689&amp;creative=392969&amp;o=1&amp;a=B000Q7PDW2" style="border: none !important; margin: 0px !important; padding: 0px !important;" width="1" /> - The same device used for Gizmo5.</li><li><a href="http://www.pbxes.com/">PBXes</a>&nbsp;- An internet based virtual PBX. The ATA talks to this service.</li><li><a href="http://www.ipkall.com/">ipkall </a>- Provides free DID. This gives me a phone number regular phones can dial.</li><li><a href="http://www.callwithus.com/">CallWithUs </a>- Outbound phone trunk. This is used for outbound calls to the PSTN.</li><li><a href="http://voice.google.com/">Google Voice</a> - Yep, that</li></ul>It could be simpler, but not with the breadth of features we get and also making it as cheap as possible - in this case it means nearly free! Inbound calls cost nothing. Outbound calls are as low as $0.01 with CallWithUs. I can swap in different outbound trunks trivially via PBXes - I can even have multiple services with complex routing rules. Very cool hackish stuff.<br /><br />Here's an overview of how it all fits together (the arrows show direction of call initiation):<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-9qrX8vTK_wo/TXwaYJmmJnI/AAAAAAAAE7Y/mcIDoGat2Lk/s1600/newVOIP.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://lh3.googleusercontent.com/-9qrX8vTK_wo/TXwaYJmmJnI/AAAAAAAAE7Y/mcIDoGat2Lk/s1600/newVOIP.png" /></a></div><br />The only number people need to know is our Google Voice number. Dialing it rings our home phone. Likewise, outbound calls work just as you would expect from a regular phone. Outbound CallerID is "spoofed" with our Google Voice number. This spoofing of the number makes sense, since it <b>is</b> our valid phone number - we aren't sending some fake number or anything dumb like that.<br /><br />When the ATA boots up, it establishes a connection to the PBXes SIP switch. They use an Asterisk based system, and for a basic system (like this) it's a free service. Once the ATA is registered with the switch, the phone line is provisioned and that connection stays nailed up. The ATA has some options to help with NAT traversal and keeping the IP sockets connected.<br /><br />Inbound calls to our Google Voice number get forwarded to our ipkall DID number. This is some random phone number in Washington state. ipkall bridges that via SIP to PBXes, which then forwards that to our ATA. PBXes has all sorts of various options in terms of call display, hunt groups, forwarding, and all that other nifty PBX stuff - but in our case it's really simple, as we have just one registered extension and all calls go directly to it.<br /><br />Outbound calls go to PBXes where an outbound trunk is selected. Again, it's possible to have all sorts of routing rules with multiple providers, but we are using just one - which is CallWithUs. PBXes sends the call via SIP to CallWithUs, which bridges the call out to the PSTN. This is the only leg that costs anything, with calls to the USA at $0.01 per minute. And we can always use Google Voice to initiate the call with their callback service, making calls free. One thing I like about CallWithUs is that you can purchase time in $5 increments.<br /><br />There's quite a bit of configuration required to the various services to make sure they all talk to each other.<br /><br />Out of the box, CallWithUs, like most SIP to PSTN services, requires a full dialing string that includes country code. The solution to this is to setup a dialplan on the ATA allowing standard 7 and 10 digit dialing:<br /><blockquote><span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">(&lt;:1&gt;xxxxxxxxxx|&lt;:1530&gt;xxxxxxx|&lt;411:18004664411&gt;|*xx|[3469]11|0|00|[2-9]xxxxxx|1xxx[2-9]xxxxxxS0|xxxxxxxxxxxx.)</span></blockquote>I won't go into all the entries but basically this tells the ATA &nbsp;what to do with various dialed numbers, inserting missing digits or replacing numbers entirely. For example, the first entry automatically prefixes a 10-digit number with the "1" country code for the USA. The second, uses area code "530" for 7-digit dialing. The third entry forwards calls to "411" to the Google directly service. An option to do here is cause a call to be initiated immediately once the dialplan has been fulfilled - which is what the <b>S0 </b>suffix does, but it can be tricky. Without it, the ATA would wait for awhile to see if you have more digits to dial. A good full tutorial on this is <a href="http://www.netphonedirectory.com/pap2_dialplan.htm">here</a>.<br /><br />The dial string rules could also be done in PBXes, though there would still be a delay for the ATA to wait for all dialing digits. A hybrid approach would be worthwhile - use the ATA configuration for 10 and 7 digit, and the various other, basic dial rules - as well as dial immediately when it can. Use the PBXes configuration for forwarding services.<br /><br />This would also be the appropriate place for routing 911 calls to some local emergency number - <b>and that brings up one very, very important issue: This solution does not provide traditional 911 service</b>. We have enough cell phones that I'm not worried about it, but it's worth thinking about how you would handle it for your case.<br /><br />The only existing issue is that some incoming calls do not have the original caller's Caller ID showing up on the phone when people call us, instead showing some Washington number. Not entirely sure why this is occurring. Outbound Caller ID works flawlessly.<br /><br />Also, I had to use the G711u codec. It works fine, but G729a uses less bandwidth and the voice quality is still excellent.<br /><br /><span class="Apple-style-span" style="font-size: large;">Here's screenshots and details for configuration:</span><br /><br /><ul><li><a href="http://callwithus.com/">CallWithUs </a>- No configuration needed for the service, just an active account and call credit balance. PBXes is a client to this service. You do need connection and account information to provide PBXes, and CallWithUs has decent documentation.</li></ul><div><ul><li><a href="http://pbxes.com/">PBXes</a> - Lots of configuration required here. You need to define an extension (with a username and password for the ATA to authenticate as). You need an outbound trunk configured (CallWithUs in my case). You need a default route that sends all inbound calls to the extension. You need a default route that send all outbound calls to the trunk.</li></ul><div><span class="Apple-style-span" style="font-size: large;">Extension configuration:</span></div><div><i>Username </i>will look something like "<b>foo-100</b>", where "<b>foo</b>" is your PBXes account, and <b>100 </b>is the extension number. The <i>Password </i>you pick, and will be configured into the ATA and ipkall. The <i>Dial </i>field would look like "<b>SIP/foo-100</b>" for this example. Note <i>dtmfmode </i>of "<b>info</b>" - this setting here, and in the ATA, was required for Google Voice to accept DTMF tones to validate my ipkall DID number for GV to forward calls to it. <i>Outbound CID</i> is our GV number.</div><div><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-MvUig33uFtg/TXwjPNd2VhI/AAAAAAAAE7c/CGd1X4YtUzk/s1600/1PBXes-extension.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://lh3.googleusercontent.com/-MvUig33uFtg/TXwjPNd2VhI/AAAAAAAAE7c/CGd1X4YtUzk/s1600/1PBXes-extension.PNG" /></a></div><div><br /></div></div><div><span class="Apple-style-span" style="font-size: large;">Trunk configuration:</span></div><div><i>Username </i>and <i>Password</i>, along with <i>SIP server or proxy</i>, are values provided by CallWithUs. <i>Outbound Caller ID</i> is our Google Voice phone number.</div><div><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-fl6obi_QgX4/TXwjPS99wEI/AAAAAAAAE7g/aoQGPGhLS3w/s1600/2PBXes-trunk.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://lh3.googleusercontent.com/-fl6obi_QgX4/TXwjPS99wEI/AAAAAAAAE7g/aoQGPGhLS3w/s1600/2PBXes-trunk.PNG" /></a></div><div><span class="Apple-style-span" style="font-size: large;"><br /></span></div><div><span class="Apple-style-span" style="font-size: large;">Inbound route configuration:</span></div><div>This is pretty simple. We want to route all incoming calls directly to extension "<b>100</b>".</div><div class="separator" style="clear: both; text-align: center;"><a href="https://lh5.googleusercontent.com/-1NYKbI7MoKI/TXwjP8i5AlI/AAAAAAAAE7k/jDob6e7RE6A/s1600/3PBXes-inbound.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://lh5.googleusercontent.com/-1NYKbI7MoKI/TXwjP8i5AlI/AAAAAAAAE7k/jDob6e7RE6A/s1600/3PBXes-inbound.PNG" /></a></div><div><br /></div><div><span class="Apple-style-span" style="font-size: large;">Outbound route configuration:</span></div><div>Also simple, this routes all outbound calls directly to the CallWithUs trunk.</div><div><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="https://lh6.googleusercontent.com/-uekstTuRayc/TXwjQIaZgZI/AAAAAAAAE7o/nkCO0Ri3iEo/s1600/4PBXes-outbound.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://lh6.googleusercontent.com/-uekstTuRayc/TXwjQIaZgZI/AAAAAAAAE7o/nkCO0Ri3iEo/s1600/4PBXes-outbound.PNG" /></a></div><div><ul><li><a href="http://www.ipkall.com/">ipkall </a>- This just needs to know about routing inbound calls to PBXes. The <i>SIP Phone Number</i> is our PBXes SIP account info - "<b>foo-100</b>" for our example.&nbsp;<i>Password </i>is the corresponding PBXes password.</li></ul><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-b_T0wVIhKXk/TXwjQVqhjvI/AAAAAAAAE7s/xUEfaD5-CUg/s1600/5ipkall.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://lh3.googleusercontent.com/-b_T0wVIhKXk/TXwjQVqhjvI/AAAAAAAAE7s/xUEfaD5-CUg/s1600/5ipkall.PNG" /></a></div></div><div><ul><li><a href="http://www.amazon.com/Cisco-PAP2T-Internet-Adapter-Voice-over-IP/dp/B000HCX7UG?ie=UTF8&amp;tag=sail2software-20&amp;link_code=btl&amp;camp=213689&amp;creative=392969" target="_blank">Linksys ATA</a><img alt="" border="0" height="1" src="http://www.assoc-amazon.com/e/ir?t=sail2software-20&amp;l=btl&amp;camp=213689&amp;creative=392969&amp;o=1&amp;a=B000HCX7UG" style="border: none !important; margin: 0px !important; padding: 0px !important;" width="1" /> - This is an especially complex device to configure. I configured <b>Line 2</b> on the device, as I set this up in parallel with the existing Gizmo5 service until I got things all working. <i>User ID</i> and <i>Password </i>are the matching username and password for this extension in PBXes configuration. You'll see <i>DTMF Tx Method</i> set to "<b>INFO</b>" to match PBXes configuration. I had to use the <b>G711u </b>codec, as my preferred G729a didn't work. <i>NAT Mapping Enable</i> and <i>NAT Keep Alive</i> were enabled to help keep the extension registered through our firewall/router/ISP. Comcast works with a <i>SIP Port</i> of 5060, however when we had AT&amp;T DSL, I had to change this. <i>Dial Plan</i> is the entry discussed above.</li></ul><div class="separator" style="clear: both; text-align: center;"></div><div class="separator" style="clear: both; text-align: center;"><a href="https://lh6.googleusercontent.com/--vaDlF0Q5BM/TXwplQzYE6I/AAAAAAAAE78/lnlvj0DFepI/s1600/6ATA1.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://lh6.googleusercontent.com/--vaDlF0Q5BM/TXwplQzYE6I/AAAAAAAAE78/lnlvj0DFepI/s1600/6ATA1.PNG" /></a></div><div><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="https://lh4.googleusercontent.com/-gLFLCJgkj7Q/TXwpM3tE2DI/AAAAAAAAE7w/1zY-7u9A79c/s1600/6ATA1.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://lh4.googleusercontent.com/-gLFLCJgkj7Q/TXwpM3tE2DI/AAAAAAAAE7w/1zY-7u9A79c/s1600/6ATA1.PNG" /></a></div><div class="separator" style="clear: both; text-align: center;"><a href="https://lh3.googleusercontent.com/-_Kb5We-Ny2o/TXwpNbDRgvI/AAAAAAAAE74/EYOELprdHFY/s1600/8ATA3.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://lh3.googleusercontent.com/-_Kb5We-Ny2o/TXwpNbDRgvI/AAAAAAAAE74/EYOELprdHFY/s1600/8ATA3.PNG" /></a></div><div><br /></div></div><div>That's it!</div><br /><br /><span class="Apple-style-span" style="font-size: large;">UPDATE 03/14:</span><br /><br />An&nbsp;acquaintance&nbsp;mentioned the use of CallCentric for a VOIP provider. There are a number of one-stop VOIP providers that don't involve or require this complex of a setup. The advantage of a one-stop solution is simplicity - only one thing to configure, although you can still use a GV number for incoming calls. I looked into CallCentric, but their rate was higher at $0.02/minute. I scouted out a few other ones as well - one wanted $35 in initial calling credits, which was more than I was willing to spend up front (and I was still only going to use them as an outbound trunk, not for a DID number).<br /><br />For anyone seriously considering a VOIP solution, I would also say that you don't have to do anything complex like the above. There are lots of one-stop VOIP providers that will allow a simple setup - and it's still going to be <b>significantly</b> cheaper and better than, say, Vonage or or Comcast VOIP.<br /><br /><br /><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><span class="Apple-style-span" style="font-size: large;">UPDATE 2011-03-28 (And read an even newer update below):</span></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><br /></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">Well, it was a great idea, but due to some issues with inbound calls, I'm giving CallCentric a try instead - even though it will cost more - around $2/month for the inbound number, and outbound rate of $0.02/minute. Inbound calls also are billed at a rate of $0.02, so they aren't free either.</div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><br /></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">What we have found is that Caller ID is flaky at best (if it works at all, it's usually some number in Tacoma WA - probably belonging to either Google Voice or ipkall), and even worse - by the time inbound calls are forwarded through all the services and our phone rings, Google Voice gives up and forwards the call to voice mail. So our phone rings, and we pick it up, but there's nobody there - because the caller is already leaving a message on GV.</div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><br /></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">This is a very simple configuration, consisting of our ATA and CallCentric, plus Google Voice.&nbsp;Our GV number will be forwarded to the CallCentric DID (in fact, both numbers are in the same Central Office), and CallCentric will send the GV CallerID on outbound calls - they just needed to verify that the number, indeed, belonged to me.</div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><br /></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">Now we shall see if CallWithUs gives me back my $4 calling credit... Otherwise there are some LONG outbound phone calls in our future! :-)</div><br />You can <a href="http://www.sail2software.com/2011/03/voip-solution-to-replace-gizmo5-round.html">read my blog posting on attempt #2 right here</a>, where any additional updates or discussion will go on this topic.<br /><br /><span style="font-size: large;">UPDATE&nbsp;2012-11-08:</span><br /><br />After about 20 months with Callcentric I've switched to Flowroute as a result of about 4 weeks of flaky or down service due to DDOS and then superstorm Sandy.<br /><br /><a href="http://www.sail2software.com/2012/11/voip-solution-round-three.html">Read the latest update here</a> before considering anything written here.<br /><div class="separator" style="clear: both; text-align: center;"></div></div>
+  <div class='post'>
+    <b><i>NOTE: If you are serious about undertaking this solution,
+    you probably want to read the updates at the bottom of this
+    entry, as we have now switched over to Flowroute as a
+    one-stop-shop (OK, two-stop-shop, with Google
+    Voice).</i></b><br>
+    <br>
+    From November 2009 until last week we were using <a href=
+    "http://www.gizmo5.com/">Gizmo5</a> plus <a href=
+    "http://voice.google.com/">Google Voice</a> for our home phone
+    service, via a&nbsp;<a href=
+    "http://www.amazon.com/Linksys-PAP2T-NA/dp/B000Q7PDW2?ie=UTF8&amp;tag=sail2software-20&amp;link_code=btl&amp;camp=213689&amp;creative=392969"
+    target="_blank">Linksys PAP2T-NA</a><img alt="" border="0"
+    height="1" src=
+    "http://www.assoc-amazon.com/e/ir?t=sail2software-20&amp;l=btl&amp;camp=213689&amp;creative=392969&amp;o=1&amp;a=B000Q7PDW2"
+    style=
+    "border: none !important; margin: 0px !important; padding: 0px !important;"
+    width="1">&nbsp;"SIP ATA" device. That last bit is a small
+    piece of hardware that bridges a regular old (POTS) telephone
+    to IP/ethernet.<br>
+    <br>
+    <br>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    The Gizmo5 solution worked pretty well, a few technical issues
+    here and there, but it was fairly stable. Inbound calls were
+    free, as they were routed through Google Voice. Outbound calls
+    were $0.01 per minute. Our total phone bill during that 16
+    months was $8.
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    <br>
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    Google acquired Gizmo5 about a year ago, and have now decided
+    to kill the service. I was really disappointed to hear this
+    decision, as I expected to see more SIP integration in Google
+    Voice, not less. It seems clear that Google is not interested
+    in SIP, though they are supporting XMPP - as used in Google
+    Talk. And just to close up the history on this, Grand Central
+    was the original company that Google bought and became Google
+    Voice (GV).
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    <br>
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    The old solution was pretty simple to setup, as Google provided
+    the integration between Gizmo5 and Google Voice via GV
+    settings. Basically, you just added your Gizmo5 number to GV,
+    then configured the ATA to talk to Gizmo5's SIP servers. Then
+    plug in a phone and make some calls. Super easy.
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    <br>
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    The new solution? Well it's quite a bit more complex.
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    <br>
+    </div><br>
+    First, a few telephony acronyms for the uninitiated.<br>
+
+    <ul>
+      <li>VOIP -&nbsp;<b>Voice Over Internet Protocol</b>. Sort of
+      a misnomer, as it's not really a protocol, just a
+      classification.</li>
+
+      <li>SIP -&nbsp;<b>Session Initiation Protocol</b>. This is
+      the standard VOIP protocol that devices use to establish
+      phone calls over the internet.</li>
+
+      <li>ATA -&nbsp;<b>Analog Terminal Adapter</b>. The device
+      that an old analog phone plugs into to bridge to a VOIP
+      protocol. An alternative would be using an IP phone.</li>
+
+      <li>POTS -&nbsp;<b>Plain Old Telephone Service</b>. The
+      analog phone system, in use well over 100 years,
+      amazing!</li>
+
+      <li>DID - <b>Direct Inward Dial</b>. The ability for someone
+      to call your VOIP phone from a regular phone.</li>
+
+      <li>CID - <b>CallerID</b>. You know what this is.</li>
+
+      <li>PBX - <b>Private Branch eXchange</b>. Essentially a
+      small, private phone company. All the phones plug into this
+      (either directly or virtually via a network), and it handles
+      all the routing between calls or trunking to an external
+      phone service (for example, calling a regular phone). PBXs
+      provide other features, such as voice mail, caller ID, and
+      management of IP phones - to provide a few examples.</li>
+
+      <li>PSTN - <b>Public Switched Telephone Network</b>. This is
+      the huge network of wires, switches, central offices, and so
+      forth that give us POTS.</li>
+    </ul>The new solution consists of the following bits and
+    pieces:<br>
+
+    <ul>
+      <li><a href=
+      "http://www.amazon.com/Linksys-PAP2T-NA/dp/B000Q7PDW2?ie=UTF8&amp;tag=sail2software-20&amp;link_code=btl&amp;camp=213689&amp;creative=392969"
+      target="_blank">Linksys ATA</a><img alt="" border="0" height=
+      "1" src=
+      "http://www.assoc-amazon.com/e/ir?t=sail2software-20&amp;l=btl&amp;camp=213689&amp;creative=392969&amp;o=1&amp;a=B000Q7PDW2"
+      style=
+      "border: none !important; margin: 0px !important; padding: 0px !important;"
+      width="1"> - The same device used for Gizmo5.</li>
+
+      <li><a href="http://www.pbxes.com/">PBXes</a>&nbsp;- An
+      internet based virtual PBX. The ATA talks to this
+      service.</li>
+
+      <li><a href="http://www.ipkall.com/">ipkall</a> - Provides
+      free DID. This gives me a phone number regular phones can
+      dial.</li>
+
+      <li><a href="http://www.callwithus.com/">CallWithUs</a> -
+      Outbound phone trunk. This is used for outbound calls to the
+      PSTN.</li>
+
+      <li><a href="http://voice.google.com/">Google Voice</a> -
+      Yep, that</li>
+    </ul>It could be simpler, but not with the breadth of features
+    we get and also making it as cheap as possible - in this case
+    it means nearly free! Inbound calls cost nothing. Outbound
+    calls are as low as $0.01 with CallWithUs. I can swap in
+    different outbound trunks trivially via PBXes - I can even have
+    multiple services with complex routing rules. Very cool hackish
+    stuff.<br>
+    <br>
+    Here's an overview of how it all fits together (the arrows show
+    direction of call initiation):<br>
+    <br>
+
+    <div class="separator" style=
+    "clear: both; text-align: center;">
+      <a href=
+      "https://lh3.googleusercontent.com/-9qrX8vTK_wo/TXwaYJmmJnI/AAAAAAAAE7Y/mcIDoGat2Lk/s1600/newVOIP.png"
+      imageanchor="1" style=
+      "margin-left: 1em; margin-right: 1em;"><img border="0" src=
+      "https://lh3.googleusercontent.com/-9qrX8vTK_wo/TXwaYJmmJnI/AAAAAAAAE7Y/mcIDoGat2Lk/s1600/newVOIP.png"></a>
+    </div><br>
+    The only number people need to know is our Google Voice number.
+    Dialing it rings our home phone. Likewise, outbound calls work
+    just as you would expect from a regular phone. Outbound
+    CallerID is "spoofed" with our Google Voice number. This
+    spoofing of the number makes sense, since it <b>is</b> our
+    valid phone number - we aren't sending some fake number or
+    anything dumb like that.<br>
+    <br>
+    When the ATA boots up, it establishes a connection to the PBXes
+    SIP switch. They use an Asterisk based system, and for a basic
+    system (like this) it's a free service. Once the ATA is
+    registered with the switch, the phone line is provisioned and
+    that connection stays nailed up. The ATA has some options to
+    help with NAT traversal and keeping the IP sockets
+    connected.<br>
+    <br>
+    Inbound calls to our Google Voice number get forwarded to our
+    ipkall DID number. This is some random phone number in
+    Washington state. ipkall bridges that via SIP to PBXes, which
+    then forwards that to our ATA. PBXes has all sorts of various
+    options in terms of call display, hunt groups, forwarding, and
+    all that other nifty PBX stuff - but in our case it's really
+    simple, as we have just one registered extension and all calls
+    go directly to it.<br>
+    <br>
+    Outbound calls go to PBXes where an outbound trunk is selected.
+    Again, it's possible to have all sorts of routing rules with
+    multiple providers, but we are using just one - which is
+    CallWithUs. PBXes sends the call via SIP to CallWithUs, which
+    bridges the call out to the PSTN. This is the only leg that
+    costs anything, with calls to the USA at $0.01 per minute. And
+    we can always use Google Voice to initiate the call with their
+    callback service, making calls free. One thing I like about
+    CallWithUs is that you can purchase time in $5 increments.<br>
+    <br>
+    There's quite a bit of configuration required to the various
+    services to make sure they all talk to each other.<br>
+    <br>
+    Out of the box, CallWithUs, like most SIP to PSTN services,
+    requires a full dialing string that includes country code. The
+    solution to this is to setup a dialplan on the ATA allowing
+    standard 7 and 10 digit dialing:<br>
+
+    <blockquote>
+      <span class="Apple-style-span" style=
+      "font-family: 'Courier New', Courier, monospace;">(&lt;:1&gt;xxxxxxxxxx|&lt;:1530&gt;xxxxxxx|&lt;411:18004664411&gt;|*xx|[3469]11|0|00|[2-9]xxxxxx|1xxx[2-9]xxxxxxS0|xxxxxxxxxxxx.)</span>
+    </blockquote>I won't go into all the entries but basically this
+    tells the ATA &nbsp;what to do with various dialed numbers,
+    inserting missing digits or replacing numbers entirely. For
+    example, the first entry automatically prefixes a 10-digit
+    number with the "1" country code for the USA. The second, uses
+    area code "530" for 7-digit dialing. The third entry forwards
+    calls to "411" to the Google directly service. An option to do
+    here is cause a call to be initiated immediately once the
+    dialplan has been fulfilled - which is what the <b>S0</b>
+    suffix does, but it can be tricky. Without it, the ATA would
+    wait for awhile to see if you have more digits to dial. A good
+    full tutorial on this is <a href=
+    "http://www.netphonedirectory.com/pap2_dialplan.htm">here</a>.<br>
+    <br>
+    The dial string rules could also be done in PBXes, though there
+    would still be a delay for the ATA to wait for all dialing
+    digits. A hybrid approach would be worthwhile - use the ATA
+    configuration for 10 and 7 digit, and the various other, basic
+    dial rules - as well as dial immediately when it can. Use the
+    PBXes configuration for forwarding services.<br>
+    <br>
+    This would also be the appropriate place for routing 911 calls
+    to some local emergency number - <b>and that brings up one
+    very, very important issue: This solution does not provide
+    traditional 911 service</b>. We have enough cell phones that
+    I'm not worried about it, but it's worth thinking about how you
+    would handle it for your case.<br>
+    <br>
+    The only existing issue is that some incoming calls do not have
+    the original caller's Caller ID showing up on the phone when
+    people call us, instead showing some Washington number. Not
+    entirely sure why this is occurring. Outbound Caller ID works
+    flawlessly.<br>
+    <br>
+    Also, I had to use the G711u codec. It works fine, but G729a
+    uses less bandwidth and the voice quality is still
+    excellent.<br>
+    <br>
+    <span class="Apple-style-span" style="font-size: large;">Here's
+    screenshots and details for configuration:</span><br>
+    <br>
+
+    <ul>
+      <li><a href="http://callwithus.com/">CallWithUs</a> - No
+      configuration needed for the service, just an active account
+      and call credit balance. PBXes is a client to this service.
+      You do need connection and account information to provide
+      PBXes, and CallWithUs has decent documentation.</li>
+    </ul>
+
+    <div>
+      <ul>
+        <li><a href="http://pbxes.com/">PBXes</a> - Lots of
+        configuration required here. You need to define an
+        extension (with a username and password for the ATA to
+        authenticate as). You need an outbound trunk configured
+        (CallWithUs in my case). You need a default route that
+        sends all inbound calls to the extension. You need a
+        default route that send all outbound calls to the
+        trunk.</li>
+      </ul>
+
+      <div>
+        <span class="Apple-style-span" style=
+        "font-size: large;">Extension configuration:</span>
+      </div>
+
+      <div>
+        <i>Username</i> will look something like "<b>foo-100</b>",
+        where "<b>foo</b>" is your PBXes account, and <b>100</b> is
+        the extension number. The <i>Password</i> you pick, and
+        will be configured into the ATA and ipkall. The <i>Dial</i>
+        field would look like "<b>SIP/foo-100</b>" for this
+        example. Note <i>dtmfmode</i> of "<b>info</b>" - this
+        setting here, and in the ATA, was required for Google Voice
+        to accept DTMF tones to validate my ipkall DID number for
+        GV to forward calls to it. <i>Outbound CID</i> is our GV
+        number.
+      </div>
+
+      <div>
+        <br>
+      </div>
+
+      <div class="separator" style=
+      "clear: both; text-align: center;">
+        <a href=
+        "https://lh3.googleusercontent.com/-MvUig33uFtg/TXwjPNd2VhI/AAAAAAAAE7c/CGd1X4YtUzk/s1600/1PBXes-extension.PNG"
+        imageanchor="1" style=
+        "margin-left: 1em; margin-right: 1em;"><img border="0" src=
+        "https://lh3.googleusercontent.com/-MvUig33uFtg/TXwjPNd2VhI/AAAAAAAAE7c/CGd1X4YtUzk/s1600/1PBXes-extension.PNG"></a>
+      </div>
+
+      <div>
+        <br>
+      </div>
+    </div>
+
+    <div>
+      <span class="Apple-style-span" style=
+      "font-size: large;">Trunk configuration:</span>
+    </div>
+
+    <div>
+      <i>Username</i> and <i>Password</i>, along with <i>SIP server
+      or proxy</i>, are values provided by CallWithUs. <i>Outbound
+      Caller ID</i> is our Google Voice phone number.
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div class="separator" style=
+    "clear: both; text-align: center;">
+      <a href=
+      "https://lh3.googleusercontent.com/-fl6obi_QgX4/TXwjPS99wEI/AAAAAAAAE7g/aoQGPGhLS3w/s1600/2PBXes-trunk.PNG"
+      imageanchor="1" style=
+      "margin-left: 1em; margin-right: 1em;"><img border="0" src=
+      "https://lh3.googleusercontent.com/-fl6obi_QgX4/TXwjPS99wEI/AAAAAAAAE7g/aoQGPGhLS3w/s1600/2PBXes-trunk.PNG"></a>
+    </div>
+
+    <div>
+      <span class="Apple-style-span" style=
+      "font-size: large;"><br></span>
+    </div>
+
+    <div>
+      <span class="Apple-style-span" style=
+      "font-size: large;">Inbound route configuration:</span>
+    </div>
+
+    <div>
+      This is pretty simple. We want to route all incoming calls
+      directly to extension "<b>100</b>".
+    </div>
+
+    <div class="separator" style=
+    "clear: both; text-align: center;">
+      <a href=
+      "https://lh5.googleusercontent.com/-1NYKbI7MoKI/TXwjP8i5AlI/AAAAAAAAE7k/jDob6e7RE6A/s1600/3PBXes-inbound.PNG"
+      imageanchor="1" style=
+      "margin-left: 1em; margin-right: 1em;"><img border="0" src=
+      "https://lh5.googleusercontent.com/-1NYKbI7MoKI/TXwjP8i5AlI/AAAAAAAAE7k/jDob6e7RE6A/s1600/3PBXes-inbound.PNG"></a>
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div>
+      <span class="Apple-style-span" style=
+      "font-size: large;">Outbound route configuration:</span>
+    </div>
+
+    <div>
+      Also simple, this routes all outbound calls directly to the
+      CallWithUs trunk.
+    </div>
+
+    <div>
+      <br>
+    </div>
+
+    <div class="separator" style=
+    "clear: both; text-align: center;">
+      <a href=
+      "https://lh6.googleusercontent.com/-uekstTuRayc/TXwjQIaZgZI/AAAAAAAAE7o/nkCO0Ri3iEo/s1600/4PBXes-outbound.PNG"
+      imageanchor="1" style=
+      "margin-left: 1em; margin-right: 1em;"><img border="0" src=
+      "https://lh6.googleusercontent.com/-uekstTuRayc/TXwjQIaZgZI/AAAAAAAAE7o/nkCO0Ri3iEo/s1600/4PBXes-outbound.PNG"></a>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="http://www.ipkall.com/">ipkall</a> - This just
+        needs to know about routing inbound calls to PBXes. The
+        <i>SIP Phone Number</i> is our PBXes SIP account info -
+        "<b>foo-100</b>" for our example.&nbsp;<i>Password</i> is
+        the corresponding PBXes password.</li>
+      </ul>
+
+      <div class="separator" style=
+      "clear: both; text-align: center;">
+        <a href=
+        "https://lh3.googleusercontent.com/-b_T0wVIhKXk/TXwjQVqhjvI/AAAAAAAAE7s/xUEfaD5-CUg/s1600/5ipkall.PNG"
+        imageanchor="1" style=
+        "margin-left: 1em; margin-right: 1em;"><img border="0" src=
+        "https://lh3.googleusercontent.com/-b_T0wVIhKXk/TXwjQVqhjvI/AAAAAAAAE7s/xUEfaD5-CUg/s1600/5ipkall.PNG"></a>
+      </div>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href=
+        "http://www.amazon.com/Cisco-PAP2T-Internet-Adapter-Voice-over-IP/dp/B000HCX7UG?ie=UTF8&amp;tag=sail2software-20&amp;link_code=btl&amp;camp=213689&amp;creative=392969"
+        target="_blank">Linksys ATA</a><img alt="" border="0"
+        height="1" src=
+        "http://www.assoc-amazon.com/e/ir?t=sail2software-20&amp;l=btl&amp;camp=213689&amp;creative=392969&amp;o=1&amp;a=B000HCX7UG"
+        style=
+        "border: none !important; margin: 0px !important; padding: 0px !important;"
+        width="1"> - This is an especially complex device to
+        configure. I configured <b>Line 2</b> on the device, as I
+        set this up in parallel with the existing Gizmo5 service
+        until I got things all working. <i>User ID</i> and
+        <i>Password</i> are the matching username and password for
+        this extension in PBXes configuration. You'll see <i>DTMF
+        Tx Method</i> set to "<b>INFO</b>" to match PBXes
+        configuration. I had to use the <b>G711u</b> codec, as my
+        preferred G729a didn't work. <i>NAT Mapping Enable</i> and
+        <i>NAT Keep Alive</i> were enabled to help keep the
+        extension registered through our firewall/router/ISP.
+        Comcast works with a <i>SIP Port</i> of 5060, however when
+        we had AT&amp;T DSL, I had to change this. <i>Dial Plan</i>
+        is the entry discussed above.</li>
+      </ul>
+
+      <div class="separator" style=
+      "clear: both; text-align: center;"></div>
+
+      <div class="separator" style=
+      "clear: both; text-align: center;">
+        <a href=
+        "https://lh6.googleusercontent.com/--vaDlF0Q5BM/TXwplQzYE6I/AAAAAAAAE78/lnlvj0DFepI/s1600/6ATA1.PNG"
+        imageanchor="1" style=
+        "margin-left: 1em; margin-right: 1em;"><img border="0" src=
+        "https://lh6.googleusercontent.com/--vaDlF0Q5BM/TXwplQzYE6I/AAAAAAAAE78/lnlvj0DFepI/s1600/6ATA1.PNG"></a>
+      </div>
+
+      <div>
+        <br>
+      </div>
+
+      <div class="separator" style=
+      "clear: both; text-align: center;">
+        <a href=
+        "https://lh4.googleusercontent.com/-gLFLCJgkj7Q/TXwpM3tE2DI/AAAAAAAAE7w/1zY-7u9A79c/s1600/6ATA1.PNG"
+        imageanchor="1" style=
+        "margin-left: 1em; margin-right: 1em;"><img border="0" src=
+        "https://lh4.googleusercontent.com/-gLFLCJgkj7Q/TXwpM3tE2DI/AAAAAAAAE7w/1zY-7u9A79c/s1600/6ATA1.PNG"></a>
+      </div>
+
+      <div class="separator" style=
+      "clear: both; text-align: center;">
+        <a href=
+        "https://lh3.googleusercontent.com/-_Kb5We-Ny2o/TXwpNbDRgvI/AAAAAAAAE74/EYOELprdHFY/s1600/8ATA3.PNG"
+        imageanchor="1" style=
+        "margin-left: 1em; margin-right: 1em;"><img border="0" src=
+        "https://lh3.googleusercontent.com/-_Kb5We-Ny2o/TXwpNbDRgvI/AAAAAAAAE74/EYOELprdHFY/s1600/8ATA3.PNG"></a>
+      </div>
+
+      <div>
+        <br>
+      </div>
+    </div>
+
+    <div>
+      That's it!
+    </div><br>
+    <br>
+    <span class="Apple-style-span" style="font-size: large;">UPDATE
+    03/14:</span><br>
+    <br>
+    An&nbsp;acquaintance&nbsp;mentioned the use of CallCentric for
+    a VOIP provider. There are a number of one-stop VOIP providers
+    that don't involve or require this complex of a setup. The
+    advantage of a one-stop solution is simplicity - only one thing
+    to configure, although you can still use a GV number for
+    incoming calls. I looked into CallCentric, but their rate was
+    higher at $0.02/minute. I scouted out a few other ones as well
+    - one wanted $35 in initial calling credits, which was more
+    than I was willing to spend up front (and I was still only
+    going to use them as an outbound trunk, not for a DID
+    number).<br>
+    <br>
+    For anyone seriously considering a VOIP solution, I would also
+    say that you don't have to do anything complex like the above.
+    There are lots of one-stop VOIP providers that will allow a
+    simple setup - and it's still going to be <b>significantly</b>
+    cheaper and better than, say, Vonage or or Comcast VOIP.<br>
+    <br>
+    <br>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    <span class="Apple-style-span" style="font-size: large;">UPDATE
+    2011-03-28 (And read an even newer update below):</span>
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    <br>
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    Well, it was a great idea, but due to some issues with inbound
+    calls, I'm giving CallCentric a try instead - even though it
+    will cost more - around $2/month for the inbound number, and
+    outbound rate of $0.02/minute. Inbound calls also are billed at
+    a rate of $0.02, so they aren't free either.
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    <br>
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    What we have found is that Caller ID is flaky at best (if it
+    works at all, it's usually some number in Tacoma WA - probably
+    belonging to either Google Voice or ipkall), and even worse -
+    by the time inbound calls are forwarded through all the
+    services and our phone rings, Google Voice gives up and
+    forwards the call to voice mail. So our phone rings, and we
+    pick it up, but there's nobody there - because the caller is
+    already leaving a message on GV.
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    <br>
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    This is a very simple configuration, consisting of our ATA and
+    CallCentric, plus Google Voice.&nbsp;Our GV number will be
+    forwarded to the CallCentric DID (in fact, both numbers are in
+    the same Central Office), and CallCentric will send the GV
+    CallerID on outbound calls - they just needed to verify that
+    the number, indeed, belonged to me.
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    <br>
+    </div>
+
+    <div style=
+    "margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">
+    Now we shall see if CallWithUs gives me back my $4 calling
+    credit... Otherwise there are some LONG outbound phone calls in
+    our future! :-)
+    </div><br>
+    You can <a href=
+    "http://www.sail2software.com/2011/03/voip-solution-to-replace-gizmo5-round.html">
+    read my blog posting on attempt #2 right here</a>, where any
+    additional updates or discussion will go on this topic.<br>
+    <br>
+    <span style=
+    "font-size: large;">UPDATE&nbsp;2012-11-08:</span><br>
+    <br>
+    After about 20 months with Callcentric I've switched to
+    Flowroute as a result of about 4 weeks of flaky or down service
+    due to DDOS and then superstorm Sandy.<br>
+    <br>
+    <a href=
+    "http://www.sail2software.com/2012/11/voip-solution-round-three.html">
+    Read the latest update here</a> before considering anything
+    written here.<br>
+
+    <div class="separator" style=
+    "clear: both; text-align: center;"></div>
+  </div>
