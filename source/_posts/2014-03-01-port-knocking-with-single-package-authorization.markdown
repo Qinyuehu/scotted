@@ -11,11 +11,12 @@ is a very clever mechanism to secure services. I'm using this so can ssh into a
 Linux server on my home network without opening the sshd port up to the world.
 
 Single packet authorization works by sending a single, encrypted UDP packet
-to a remote system. The packet is never replied to in any way, but if if it's
+to a remote system. The packet is never ACKd or replied to, but if if it's
 validated by the remote system, then it uses iptables to temporarily open up
-the service port for access. After a user-configurable amount of time (30
-seconds by default), the port is closed, but stateful iptable rules keep
-existing connections active.
+the service port for access. If the packet isn't valid, it is simply ignored.
+In either case, to an external observer the packet appears to go into a black
+hole. After a user-configurable amount of time (30 seconds by default), the port
+is closed, but stateful iptable rules keep existing connections active.
 
 This is really great because all ports to my home IP address appear, from the
 internet, to be black holes - my router firewall drops all unknown packets, and
