@@ -43,12 +43,22 @@ On the client, I have a simple script that:
 * Sends the authorization packet via the fwknop client
 * ssh's into my server on the configured sshd port
 
+The script looks something like:
+
+```
+fwknop -n my.host.fqdn
+ssh -p 12345 my.host.fqdn
+```
+
+I'm using a free dynamic DNS service so that I don't have to remember the
+dynamic IP address assigned by my ISP.
+
 Further Reading
 ---------------
 
 The [documentation](http://www.cipherdyne.org/fwknop/docs/fwknop-tutorial.html)
 is decent, and I've found this solution works very nicely for me, without
-exposing **any** detectible open ports on my network. Unlike with simple port
+exposing *any* detectible open ports on my network. Unlike with simple port
 knocking, it is virtually impossible for someone to use packet capture replay to
 access the system. Because all packets are dropped unless the authorization
 packet opens up the service port, it is completely undetectable via port
