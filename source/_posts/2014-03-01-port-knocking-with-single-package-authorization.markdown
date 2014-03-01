@@ -97,9 +97,14 @@ ALLOW_IP                    resolve
 
 From this config, you can see that the fwknop port is 12345, and sshd is
 listening on 54321 (though these aren't the real ports or FQDN in use). The
-KEY_BASE64 and HMAC_KEY_BASE64 values need to match.
+KEY_BASE64 and HMAC_KEY_BASE64 values need to match between client and server. I
+chose to use
+[symmetric keys](http://www.cipherdyne.org/fwknop/docs/fwknop-tutorial.html#fwknop-rijndael)
+but you can use asymmetric keys via GPG if you prefer.
 
 See the fwknop documentation for more information on configuring everything.
+There are a lot of options, so you'll have to figure out what you need based on
+your individual needs.
 
 I'm using a free dynamic DNS service so that I don't have to remember the
 dynamic IP address assigned by my ISP.
