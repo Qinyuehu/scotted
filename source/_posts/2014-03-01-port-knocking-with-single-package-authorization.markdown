@@ -35,8 +35,40 @@ There are three areas that need to be configured on the server-side:
 * Service needs to listen on appropriate port
 * Router firewall needs to forward fwknop and service ports to the server
 
+*/etc/fwknop/fwknopd.conf* excerpt from the server:
+
+```
+PCAP_FILTER                 udp port 12345;
+```
+
+On my debian testing/Jessie server I also had to add this line to *fwknopd.conf*:
+
+```
+PCAP_DISPATCH_COUNT            1;
+```
+
+*/etc/fwknop/access.conf* excerpt from the server:
+
+```
+SOURCE                    ANY
+REQUIRE_SOURCE_ADDRESS    Y
+KEY_BASE64                SOME_BASE64_ENCODED_KEY
+HMAC_KEY_BASE64           SOME_BASE64_ENCODED_HMAC_KEY
+```
+
 I didn't use the default port as a bit of added measure, and additionally I'm
 running sshd on a different port as well, as a small added bit of security.
+
+Adding an additional port in sshd is really simple, just add an additional Port
+line and restart sshd:
+
+```
+Port 22
+Port 54321
+```
+
+Only port 54321 is port forwarded on the router, but I can still use port 22
+while on my home network.
 
 On the client, I have a simple script that:
 
@@ -46,9 +78,28 @@ On the client, I have a simple script that:
 The script looks something like:
 
 ```
-fwknop -n my.host.fqdn
-ssh -p 12345 my.host.fqdn
+fwknop my.host.fqdn
+ssh -p 54321 my.host.fqdn
 ```
+
+Excerpt from *.fwknoprc* on the client:
+
+```
+[my.host.fqdn]
+ACCESS                      tcp/54321
+SPA_SERVER                  my.host.fqdn
+SPA_SERVER_PORT             12345
+KEY_BASE64                  SOME_BASE64_ENCODED_KEY
+HMAC_KEY_BASE64             SOME_BASE64_ENCODED_HMAC_KEY
+USE_HMAC                    Y
+ALLOW_IP                    resolve
+```
+
+From this config, you can see that the fwknop port is 12345, and sshd is
+listening on 54321 (though these aren't the real ports or FQDN in use). The
+KEY_BASE64 and HMAC_KEY_BASE64 values need to match.
+
+See the fwknop documentation for more information on configuring everything.
 
 I'm using a free dynamic DNS service so that I don't have to remember the
 dynamic IP address assigned by my ISP.
