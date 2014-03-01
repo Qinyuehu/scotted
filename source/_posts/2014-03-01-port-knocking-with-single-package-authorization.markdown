@@ -26,14 +26,22 @@ the specific ports open for fwknop are dropped via iptables on my Linux server.
 Configuring this solution isn't too difficult if you are familiar with networking
 and Linux network and system administration, but it can be a bit tricky to test.
 
-Configuration
--------------
+Server Configuration
+--------------------
 
-There are three areas that need to be configured on the server-side:
+There are four areas that need to be configured on the server-side:
 
 * Fwknop needs to be configured with appropriate ports and security keys
-* Service needs to listen on appropriate port
+* iptables policy needs to be created for each service port
+* Services need to listen on appropriate ports
 * Router firewall needs to forward fwknop and service ports to the server
+
+My per-service iptables policies are done in */etc/rc.local* and look like:
+
+```
+/sbin/iptables -I INPUT 1 -i eth0 -p tcp --dport 54321 -j DROP
+/sbin/iptables -I INPUT 1 -i eth0 -p tcp --dport 54321 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+```
 
 */etc/fwknop/fwknopd.conf* excerpt from the server:
 
@@ -70,6 +78,9 @@ Port 54321
 Only port 54321 is port forwarded on the router, but I can still use port 22
 while on my home network.
 
+Client Configuration
+--------------------
+
 On the client, I have a simple script that:
 
 * Sends the authorization packet via the fwknop client
@@ -103,7 +114,7 @@ chose to use
 but you can use asymmetric keys via GPG if you prefer.
 
 See the fwknop documentation for more information on configuring everything.
-There are a lot of options, so you'll have to figure out what you need based on
+There are a lot of options, so you'll have to figure out what to do based on
 your individual needs.
 
 I'm using a free dynamic DNS service so that I don't have to remember the
