@@ -9,3 +9,23 @@ article {
         color : $sol_yellow;
     }
 }
+
+#disqus_thread {
+color: #ffffff;
+border-style: 0px solid;
+border-color: #cccccc;
+padding: 5px;
+}
+
+#dsq-content #dsq-comments .dsq-comment-body {
+color: #fff;
+background-color: #000000;
+} 
+
+.dsq-reaction-body {
+color: #fff;
+}
+
+.dsq-reaction-retweets {
+color: #ccc;
+}
