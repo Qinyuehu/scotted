@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Port knocking with single package authorization"
+title: "Port knocking with single packet authorization"
 date: 2014-03-01 09:48:45 -0800
 comments: true
 categories:
