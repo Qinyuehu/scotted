@@ -6,7 +6,7 @@ comments: true
 categories:
 ---
 
-![A better dynamic MOTD](images/dynamic-motd.png)
+![A better dynamic MOTD](/images/dynamic-motd.png)
 
 Debian based systems (and derivatives such as Ubuntu) have a facility built into
 PAM that can display a dynamically generated MOTD on login. Debian doesn't use
@@ -309,5 +309,13 @@ $ sudo rm /etc/motd
 $ sudo ln -s /var/run/motd /etc/motd
 ```
 
+If you don't already have them, you'll need a couple of packages:
+
+```
+$ sudo aptitude install figlet update-notifier-common
+```
+
 And that about covers it! With this, I have a nice dynamic MOTD which doesn't
 slow me down.
+
+Note that the scripts above may become out of date over time. Check my [linux-configs github repo](https://github.com/scotte/linux-configs) for the latest, up-to-date version.
