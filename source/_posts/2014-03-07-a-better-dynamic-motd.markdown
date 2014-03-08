@@ -10,41 +10,40 @@ categories:
 
 Debian based systems (and derivatives such as Ubuntu) have a facility built into
 PAM that can display a dynamically generated MOTD on login. Debian doesn't use
-this by default, but Ubuntu does. I wanted to add this to my Debian test/Jessie
-boxes, but the Ubuntu version performs horribly - if you've ever wondered why
-Ubuntu hangs for a second or so upon login while displaying the MOTD, this is
-why.
+this by default, but Ubuntu does. I wanted to add this to my Debian
+testing/Jessie boxes, but the Ubuntu version performs horribly - if you've ever
+wondered why Ubuntu hangs for a second or so upon login while displaying the
+MOTD, this is why.
 
-Taking a closer look at the Ubuntu */etc/update-motd.d* files, it was clear to
-me why the default Ubuntu implementation is so slow - Two reasons, In fact.
-First, text that is static is generated every time, such as the hostname banner,
-and the script to display the number of available updates. The latter is
-horribly slow and something that doesn't need to be checked at *every* login
-anyway. Second, the script for truly dynamic content forks way more processes
-than necessary.
+Taking a closer look at the Ubuntu */etc/update-motd.d/* files, it was clear to
+me why the default Ubuntu implementation is so slow - Two reasons, in fact.
+First, text doesn't change frequently is generated every time, such as the
+hostname banner and the script to display the number of available updates. The
+latter is horribly slow and something that doesn't need to be checked at *every*
+login anyway. Second, the script for truly dynamic content forks way more
+processes than necessary and can be easily tuned and improved.
 
-With my revisions to these scripts and process, my login are instantaneous and
+With my revisions to these scripts and process, my logins are instantaneous and
 I've even added running the MOTD display on each invocation of
 [urxvt](http://software.schmorp.de/pkg/rxvt-unicode), the terminal program I
 use.
 
 Here's how to implement a much better dynamic MOTD. The source for this is
-available in my [linux-config github project](https://github.com/scotte/linux-
-configs).
+available in my [linux-configs github project](https://github.com/scotte/linux-configs).
 
-One: Make static content static
--------------------------------
+Make static content static
+--------------------------
 
 What I did was separate the scripts into two configuration directories - one
 containing dynamic content, generated on each execution (just like the default),
 and a second for static content, which is only generated occasionally via cron
 (every 30 minutes).
 
-The cron jobs uses run-parts to run the static content scripts, which write to
-/var/run. These files are then read directly via the dynamic content scripts.
+The cron job uses *run-parts* to run the static content scripts, which write to
+*/var/run*. These files are then read directly via the dynamic content scripts.
 
 Here's a brief overview of the layout, but more detail about the scripts is
-provided below, as well.
+provided below as well.
 
 [/etc/update-motd_local.d](https://github.com/scotte/linux-configs/tree/master/etc/update-motd_local.d)
 contains the static content scripts, run by a simple cron job.
@@ -54,14 +53,15 @@ contains the dynamic content scripts. These scripts are also responsible for
 displaying the static files from /var/run. There must at least be one script
 in this directory for each static script, but there can also be additional
 dynamic content scripts with no corresponding static content. Note that scripts
-that simply cat the staticly generated files are simply links to *00-header*.
+that simply cat the statically generated files are simply symbolic links to
+*00-header*.
 
 */var/run/motd_local-* will contain the static content files.
 
 And [here's the crontab](https://github.com/scotte/linux-configs/blob/master/configs/crontab-root).
 
-Two: Make dynamic content faster
---------------------------------
+Make dynamic content faster
+---------------------------
 
 As mentioned above, the default */etc/update-motd.d/10-sysinfo* file from Ubuntu
 does considerable more forking than is necessary - even doing things such as
@@ -74,10 +74,10 @@ instead of:
 
 The cat and pipe are entirely unnecessary.
 
-Additionally, some of the awk scripts were pipes to other awk scripts, or pipes
+Additionally, some of the awk scripts piped to other awk scripts, or were pipes
 from grep to awk, which can all be handled via a single awk script. Also,
 commands like "ps" or "free" were being run when the information is already
-available in "/proc" My resulting script runs in about 3 times faster than the
+available in "/proc" My resulting script runs about 3 times faster than the
 original, entirely excluding the static content improvements, and is
 significantly nicer on system resources!
 
@@ -159,15 +159,15 @@ dynamic scripts.
 
 The static scripts are *00-header*, *20-sysinfo*, and *90-footer*, as listed
 just above. There is *not* a *10-sysinfo* script in the static scripts, since
-that is dynamic. Make sure you understand run-parts, as it is key to how these
-scripts are executed.
+that is dynamic only. Make sure you understand *run-parts*, as it is key to how
+these scripts are executed.
 
 Let's take a look at *00-header* next. This isn't much different than the
 original, except we dup the stdout file descriptor to write to our file in
 /var/run (a partial filename is passed in as the first argument).
 
-I also chose a figlet font that I like better as well, which doesn't take up
-quite as much space and, well, it looks spiffy.
+I also chose a [figlet](http://www.figlet.org/) font that I like better as
+well, which doesn't take up quite as much space and, well, it looks spiffy.
 
 ```
 #!/bin/sh
@@ -216,7 +216,7 @@ needed:
 ```
 #!/bin/bash
 #
-#    10-sysinfo - generate the system information
+#    20-sysinfo - generate the system information
 #    Copyright (c) 2013 Nick Charlton
 #
 #    Authors: Nick Charlton <hello@nickcharlton.net>
