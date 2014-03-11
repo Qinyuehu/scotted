@@ -287,6 +287,9 @@ The crontab to run the static scripts every 30 minutes is quite trivial:
 */30 * * * * /bin/run-parts --arg=/var/run/motd_local- /etc/update-motd_local.d
 ```
 
+**Important: Don't forget to run that same command in */etc/rc.local* or the static
+content files won't be populated in /var/run until the cron job runs!**
+
 ### My urxvt launcher script
 
 Here's my *~/bin/urxvt* that I use to launch urxvt:
