@@ -17,7 +17,7 @@ MOTD, this is why.
 
 Taking a closer look at the Ubuntu */etc/update-motd.d/* files, it was clear to
 me why the default Ubuntu implementation is so slow - Two reasons, in fact.
-First, text doesn't change frequently is generated every time, such as the
+First, text that doesn't change frequently is generated every time, such as the
 hostname banner and the script to display the number of available updates. The
 latter is horribly slow and something that doesn't need to be checked at *every*
 login anyway. Second, the script for truly dynamic content forks way more
@@ -82,6 +82,11 @@ original, entirely excluding the static content improvements, and is
 significantly nicer on system resources!
 
 Where ssh would hang for a second or so on each login, it's now instantaneous.
+
+You'll need figlet and update-notifier-common packages, if you don't already
+have them.
+
+    $ sudo aptitude install figlet update-notifier-common
 
 A closer look at the scripts
 ----------------------------
