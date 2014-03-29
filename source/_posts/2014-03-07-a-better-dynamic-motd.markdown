@@ -126,7 +126,7 @@ Here's the updated */etc/update-motd.d/10-sysinfo*:
 load=`awk '{print $1}' /proc/loadavg`
 root_usage=`df -h / | awk '/\// {print $(NF-1)}'`
 memory_usage=`awk '/^MemTotal:/ {total=$2} /^MemFree:/ {free=$2} /^Buffers:/ {buffers=$2} /^Cached:/ {cached=$2} END { printf("%3.1f%%", (total-(free+buffers+cached))/total*100)}' /proc/meminfo`
-swap_usage=`awk '{uptime=$1} END {days = int(uptime/86400); hours = int((uptime-(days*86400))/3600); printf("%d days, %d hours", days, hours)}' /proc/uptime`
+swap_usage=`awk '/^SwapTotal:/ { total=$2 } /^SwapFree:/ { free=$2} END { printf("%3.1f%%", (total-free)/total*100 )}' /proc/meminfo`
 users=`users | wc -w`
 time=`awk '{uptime=$1} END {days = int(uptime/86400); hours = int((uptime-(days*86400))/3600); printf("%d days, %d hours", days, hours)}' /proc/uptime`
 processes=`/bin/ls -d /proc/[0-9]* | wc -l`
