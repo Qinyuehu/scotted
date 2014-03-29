@@ -39,9 +39,15 @@ There are four areas that need to be configured on the server-side:
 My per-service iptables policies are done in */etc/rc.local* and look like:
 
 ```
-/sbin/iptables -I INPUT 1 -i eth0 -p tcp --dport 54321 -j DROP
-/sbin/iptables -I INPUT 1 -i eth0 -p tcp --dport 54321 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+/sbin/iptables -I INPUT 2 -i eth0 -p tcp --dport 54321 -j DROP
+/sbin/iptables -I INPUT 2 -i eth0 -p tcp --dport 54321 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 ```
+
+It's subtle, but note the rule order of "2" is used, instead of the default (which is "1").
+This is to make sure that these rules are in the table *after* the FWKNOP_INPUT rule, which
+fwknop will create when it starts. Likewise, the order of the rules above is important, and
+are in the order they are to make sure the ESTABLISHED,RELATED rule ends up before the DROP
+rule. When loaded, the second rule will displace the first as they have the same priority.
 
 */etc/fwknop/fwknopd.conf* excerpt from the server:
 
