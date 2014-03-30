@@ -4,6 +4,8 @@ title: "Port knocking with single packet authorization"
 date: 2014-03-01 09:48:45 -0800
 comments: true
 categories:
+ - linux
+ - software
 ---
 
 A few weeks ago I discovered [fwknop](http://www.cipherdyne.org/fwknop/) which
