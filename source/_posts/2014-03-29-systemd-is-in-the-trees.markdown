@@ -8,7 +8,7 @@ categories:
  - software
 ---
 
-You read that right - systemd "is in the trees... It's coming!"*\**
+You read that right - systemd is "in the trees... It's coming!" *
 
 If you pay attention to things happening in the world of Linux, you probably
 know that [systemd](http://freedesktop.org/wiki/Software/systemd/) will be
@@ -187,7 +187,7 @@ over the aging sysvinit. It will take some time for all your various services
 and programs to get updated with systemd init scripts, but until then the
 default systemd compatibility mode will still start all those scripts for you.
 
-*\** Yes, this is a reference to the Kate Bush lyric from
+\* Yes, this is a reference to the Kate Bush lyric from
 [*Hounds of Love*](https://en.wikipedia.org/wiki/Hounds_of_Love),
 originating in the movie
 [*Curse of the Demon*](http://www.imdb.com/title/tt0050766/) aka
