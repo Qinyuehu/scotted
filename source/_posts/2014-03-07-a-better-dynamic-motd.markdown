@@ -286,6 +286,27 @@ exec >${OUT}
 Those scripts could probably use some fencing, such as checking that the
 directory argument is valid, and that the directory exists.
 
+### File layout in /etc
+
+The layout of **/etc/update-motd.d** and **/etc/update-motd_local.d** should look
+like the following:
+
+```
+$ ls -l update-motd.d/*
+-rwxr-xr-x 1 root root  144 Mar 29 14:58 update-motd.d/00-header
+-rwxr-xr-x 1 root root 2639 Mar 29 15:21 update-motd.d/10-sysinfo
+lrwxrwxrwx 1 root root    9 Mar 29 14:58 update-motd.d/20-sysinfo -> 00-header
+lrwxrwxrwx 1 root root    9 Mar 29 14:58 update-motd.d/90-footer -> 00-header
+
+$ ls -l update-motd_local.d/*
+-rwxr-xr-x 1 root root 1372 Mar 29 14:58 update-motd_local.d/00-header
+-rwxr-xr-x 1 root root 1044 Mar 29 14:58 update-motd_local.d/20-sysinfo
+-rwxr-xr-x 1 root root 1088 Mar 29 14:58 update-motd_local.d/90-footer
+```
+
+Note the relationship between files in *update-motd_local.d*, and the corresponding
+file/link in *update-motd.d*, along with scripts for dynamic content.
+
 ### The crontab entry
 
 The crontab to run the static scripts every 30 minutes is quite trivial:
@@ -297,7 +318,7 @@ The crontab to run the static scripts every 30 minutes is quite trivial:
 **Important: Don't forget to run that same command in */etc/rc.local* or the static
 content files won't be populated in /var/run until the cron job runs!**
 
-### My urxvt launcher script
+### My per-user scripts and configuration
 
 Here's my *~/bin/urxvt* that I use to launch urxvt:
 
@@ -305,11 +326,16 @@ Here's my *~/bin/urxvt* that I use to launch urxvt:
 exec /usr/bin/urxvt -e sh -c "run-parts /etc/update-motd.d; exec $SHELL"
 ```
 
+Note that here we are executing **run-parts** on the dynamic scripts, where
+the crontab and /etc/rc.local execute on the static scripts.
+
 And finally, my *i3* keybinding line:
 
 ```
 bindsym $mod+Return exec bin/urxvt
 ```
+
+### A few other details
 
 The only other non-obvious detail is that */etd/motd* needs to be a symbolic
 link to */var/run/motd*, which you can set up like so:
@@ -319,10 +345,21 @@ $ sudo rm /etc/motd
 $ sudo ln -s /var/run/motd /etc/motd
 ```
 
+There is a little bit of subtle magic here - **/var/run/motd** may not exist when
+you create the symbolic link, but that's actually OK - it will be created when
+the motd is generated.
+
 If you don't already have them, you'll need a couple of packages:
 
 ```
 $ sudo aptitude install figlet update-notifier-common
+```
+
+Until either the crontab runs, or a reboot executes /etc/rc.local, the static
+contant won't be present. To do a one-time update of it, run:
+
+```
+$ sudo sudo /bin/run-parts --arg=/var/run/motd_local- /etc/update-motd_local.d
 ```
 
 And that about covers it! With this, I have a nice dynamic MOTD which doesn't
