@@ -256,7 +256,7 @@ And finally, the diminutive *90-footer* which just appends the content of
 ```
 #!/bin/sh
 #
-#    99-footer - write the admin's footer to the MOTD
+#    90-footer - write the admin's footer to the MOTD
 #    Copyright (c) 2013 Nick Charlton
 #    Copyright (c) 2009-2010 Canonical Ltd.
 #
