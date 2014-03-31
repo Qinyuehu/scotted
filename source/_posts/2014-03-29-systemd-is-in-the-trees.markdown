@@ -192,3 +192,6 @@ default systemd compatibility mode will still start all those scripts for you.
 originating in the movie
 [*Curse of the Demon*](http://www.imdb.com/title/tt0050766/) aka
 [*Night of the Demon*](https://en.wikipedia.org/wiki/Night_of_the_demon).
+Since systemd is about managing system daemons, somehow the line
+"It's in the trees... It's coming!" popped into my head as I was thinking
+about a good title for this article.
