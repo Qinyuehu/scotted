@@ -12,6 +12,8 @@ A few weeks ago I discovered [fwknop](http://www.cipherdyne.org/fwknop/) which
 is a very clever mechanism to secure services. I'm using this so I can ssh into a
 Linux server on my home network without opening the sshd port up to the world.
 
+<img src="http://www.cipherdyne.org/images/fwknop_tutorial_network_diagram.png"/>
+
 Single packet authorization works by sending a single, encrypted UDP packet to a
 remote system. The packet is never ACKd or replied to, but if it's validated by
 the remote system, then it uses iptables to temporarily open up the service port
