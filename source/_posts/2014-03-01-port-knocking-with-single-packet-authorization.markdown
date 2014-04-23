@@ -53,6 +53,10 @@ fwknop will create when it starts. Likewise, the order of the rules above is imp
 are in the order they are to make sure the ESTABLISHED,RELATED rule ends up before the DROP
 rule. When loaded, the second rule will displace the first as they have the same priority.
 
+Before you start fwknop, and open up ports on your firewall, don't forget to make sure these
+rules are in place. In that case, if you create these rules manually, use rule order "1"
+instead of "2", as you are creating the rules before fwknop has added it's rule.
+
 */etc/fwknop/fwknopd.conf* excerpt from the server:
 
 ```
