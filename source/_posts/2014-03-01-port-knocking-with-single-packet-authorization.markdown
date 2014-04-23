@@ -134,6 +134,8 @@ your individual needs.
 I'm using a free dynamic DNS service so that I don't have to remember the
 dynamic IP address assigned by my ISP.
 
+This has been tested with Debian on both stable/Wheezy and testing/Jessie.
+
 Further Reading
 ---------------
 
