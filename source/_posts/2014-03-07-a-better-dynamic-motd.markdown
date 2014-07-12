@@ -4,7 +4,6 @@ title: "A better dynamic MOTD"
 date: 2014-03-07 19:51:08 -0800
 comments: true
 categories:
-categories:
  - linux
 ---
 

@@ -166,7 +166,12 @@ WantedBy=multi-user.target
 ```
 
 This file needs to be executable, or systemd won't run it (I discovered this
-the hard way), and we need to tell systemd to enable our new service:
+the hard way), and we need to tell systemd to enable our new service. I
+received a comment that the /etc/systemd/system/*.server files actually don't
+need to be executable. Perhaps something has changed, but I found it did need
+to be executable, and all the other .service files from official packages were
+executable as well. I would simply suggest setting the mode for rc-local.service
+to be consistent with all the other .service files.
 
     $ sudo chmod +x /etc/systemd/system/rc-local.service
     $ sudo systemctl enable rc-local
