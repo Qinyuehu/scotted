@@ -93,7 +93,20 @@ or VOIP provider more than $5 a month for phone service you are getting seriousl
 ripped off. Cancel that, pick up an OBi100 for $40, and go set up an account at
 [Flowroute](http://www.flowroute.com). They will provision a DID instantly in
 the area code of your choosing, and you'll be up and running pretty darn quick.
-I don't know if they can port existing numbers,
+By using auto-provisioning through ObiTalk and following the
+[config guide](https://support.flowroute.com/entries/26064109-Obihai-OBi202-Configuration-Guide)
+mentioned previously, you don't have to know anything about SIP or configuring
+an ATA to get up and running.
+
+Manually configuring a SIP device is not a particular fun task if you aren't
+familiar with telephony - there are literally hundreds of configuration options,
+and it's not always obvious what you are supposed to do. The config guide
+mentioned above will walk you through manual configuration through the device
+wizard on the OBi, so it's not that hard, but some people might find doing it
+all through ObiTalk attractive (and perhaps want the additional features it
+provides as well).
+
+I don't know if Flowroute can port existing numbers,
 but we switched to bouncing through a Google Voice number several years ago,
 so our friends+family know to use that number, not the ANI (CallerID) number
 they see when we call them.
