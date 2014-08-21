@@ -8,4 +8,4 @@ paginate: 10
 highlighter: pygments
 markdown: redcarpet
 
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile', 'stage']
