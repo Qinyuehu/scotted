@@ -1,0 +1,21 @@
+<html>
+<head>
+  <script>
+    console.log(window.location.href);
+    if (window.location.href.indexOf('http://scotte.github.io/sail2software/images/Chix_Open.jpg') === 0) {
+        window.location.href = 'http://scotte.github.io/images/Chix_Open.jpg';
+    }
+    if (window.location.href.indexOf('https://scotte.github.io/sail2software/images/Chix_Open.jpg') === 0) {
+        window.location.href = 'https://scotte.github.io/images/Chix_Open.jpg';
+    }
+    if (window.location.href.indexOf('http://sail2software.com/sail2software/images/Chix_Open.jpg') === 0) {
+        window.location.href = 'http://scotte.github.io/images/Chix_Open.jpg';
+    }
+    if (window.location.href.indexOf('https://sail2software.com/sail2software/images/Chix_Open.jpg') === 0) {
+        window.location.href = 'https://scotte.github.io/images/Chix_Open.jpg';
+    }
+  </script>
+
+  <link rel="canonical" href="http://scotte.github.io"/>
+</head>
+</html>

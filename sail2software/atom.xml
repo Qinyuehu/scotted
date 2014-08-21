@@ -1,0 +1,1105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>ScottE's blog - sail2software</title>
+		<description>Random things - everything from sailing to software</description>
+		<link>http://sail2software.com</link>
+		<atom:link href="http://sail2software.com/atom.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>From Octopress to Jekyll</title>
+				<description>&lt;p&gt;When I originally migrated this off blogger I used Octopress, which a coworker had
+told me about. Octopress has worked well, but despite it&amp;#39;s quite a bit more complex
+than just using Jekyll directly. Sure, with Jekyll you have a bit more work to do in
+styling and editing templates, but in the end I found it less effort than Octopress,
+and ended up with something that&amp;#39;s much, much easier to maintain, add posts, and
+publish.&lt;/p&gt;
+
+&lt;p&gt;The Octopress approach is to enable a whole bunch of plugins, none of which I wanted
+except Disqus, and which I then had to manually remove. Jekyll is just the opposite -
+the base Jekyll has few features and you add what you need. The second approach, on
+the whole, is a better deal.&lt;/p&gt;
+
+&lt;p&gt;I think &lt;a href=&quot;https://lauris.github.io/blogging/2014/08/16/jekyll-vs-octopress/&quot;&gt;this tiny rant&lt;/a&gt;
+summarizes it well.&lt;/p&gt;
+
+&lt;p&gt;There may be some layout and content hiccups as I hack on things, but permalinks,
+rss feed, disqus, etc should all be good.&lt;/p&gt;
+</description>
+				<pubDate>Thu, 21 Aug 2014 14:37:33 +0000</pubDate>
+				<link>http://sail2software.com/2014/08/from-octopress-to-jekyll.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/08/from-octopress-to-jekyll.html</guid>
+			</item>
+		
+			<item>
+				<title>Cornell Chicken</title>
+				<description>&lt;p&gt;Yesterday I cooked this &lt;a href=&quot;http://virtualweberbullet.com/chicken3.html&quot;&gt;Cornell Chicken recipe&lt;/a&gt;
+in my Weber Smokey Mountain (WSM) and it turned out great!&lt;/p&gt;
+
+&lt;p&gt;The Cornell Chicken recipe comes from Robert Baker who was a professor at
+Cornell University and founded the Food Science Institute at that college.&lt;/p&gt;
+
+&lt;p&gt;There are variations on the original Cornell recipe, and the baste I used
+(recipe link above, from &lt;a href=&quot;http://virtualweberbullet.com&quot;&gt;virtualweberbullet.com&lt;/a&gt;)
+uses a base of dijon, cider vinegar, and rosemary and it came out splendidly! I
+used a blend of cherry and apple woods.&lt;/p&gt;
+
+&lt;p&gt;I butterflied the chicken and brined it first, but this is a very versatile recipe
+that could be cooked with any chicken parts or preparation and in any grill or
+BBQ - gas, charcoal, a Traeger, etc.&lt;/p&gt;
+
+&lt;p&gt;The WSM smoking away:
+&lt;img src=&quot;/images/Chix_Smoking.jpg&quot; alt=&quot;WSM Smoking&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Chicken cooking:
+&lt;img src=&quot;/images/Chix_Open.jpg&quot; alt=&quot;Chicken Cooking&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Finished product:
+&lt;img src=&quot;/images/Chix_Done.jpg&quot; alt=&quot;Chicken Done&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Give it a try, you won&amp;#39;t be disappointed.&lt;/p&gt;
+</description>
+				<pubDate>Sun, 03 Aug 2014 17:20:22 +0000</pubDate>
+				<link>http://sail2software.com/2014/08/cornell-chicken.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/08/cornell-chicken.html</guid>
+			</item>
+		
+			<item>
+				<title>VOIP Solution Round FOUR</title>
+				<description>&lt;p&gt;Oh no, if you&amp;#39;ve been reading this blog for a long time I already know what you
+are thinking - here we go,
+&lt;a href=&quot;http://www.sail2software.com/2012/11/voip-solution-round-three.html&quot;&gt;switching VOIP providers yet again&lt;/a&gt;.
+Don&amp;#39;t worry, &lt;a href=&quot;http://www.flowroute.com&quot;&gt;Flowroute&lt;/a&gt; continues to be my SIP
+provider of choice (they are, quite simple, awesome).&lt;/p&gt;
+
+&lt;p&gt;No, this round was prompted by a hardware failure when our 5 year old Linksys
+PAP2TNA bit the dust. A couple of days ago my wife went to use the phone - so
+she hit the Talk button to take it off-hook, but then realized she needed some
+additional information so hung up. The ATA was making a dial-tone, because I
+could hear it from across the room. Two minutes later she hit the Talk button
+again, and got... silence. No dial-tone, just nothing.&lt;/p&gt;
+
+&lt;p&gt;Hmmm, that&amp;#39;s weird - so I go and take a look at the Linksys ATA and find it
+boot-looping. The power LED would flash green, the LAN LED would flash green,
+then the power LED would go red and it would reboot itself. I cycled the power,
+even left it unplugged for the day, but it appears that it decided to randomly
+fry itself.&lt;/p&gt;
+
+&lt;p&gt;Well, time for a new ATA. I had heard about Obihai&amp;#39;s affordable ATAs and found
+that the local Fry&amp;#39;s had an &lt;a href=&quot;http://www.obihai.com/obi100pr&quot;&gt;OBi100&lt;/a&gt; in stock
+for around $40. The OBi100 is a very basic model, supporting just a single POTS
+line, but that&amp;#39;s all we need.&lt;/p&gt;
+
+&lt;p&gt;OBi devices have two modes of configuration - you can browse directly to the
+device on your local network to configure services, or auto-provision through
+the &lt;a href=&quot;http://www.obitalk.com&quot;&gt;ObiTalk&lt;/a&gt; website. Although I&amp;#39;m familiar enough with
+SIP configuration that I don&amp;#39;t mind direct device config, I decided to provision
+it via ObiTalk.&lt;/p&gt;
+
+&lt;p&gt;Flowroute isn&amp;#39;t one of Obihai&amp;#39;s &amp;quot;certified&amp;quot; providers, but it&amp;#39;s just SIP and I
+found a
+&lt;a href=&quot;https://support.flowroute.com/entries/26064109-Obihai-OBi202-Configuration-Guide&quot;&gt;config guide&lt;/a&gt;
+at Flowroute&amp;#39;s website. The config guide was for direct device config, but the
+fields are the same, so it was easy enough to provision.&lt;/p&gt;
+
+&lt;p&gt;And it worked! Well, actually it only sort of worked. I could make outbound
+calls via Flowroute, but inbound calls to my DID would just result in a busy
+signal. At this point, I wasn&amp;#39;t sure if it was something in the SIP negotiation
+preventing Flowroute from routing my DID, or something in the OBi device, or
+just something I screwed up in the config.&lt;/p&gt;
+
+&lt;p&gt;So, I gave up on ObiTalk - I deleted my device from ObiTalk, reset the OBi
+device to factory defaults, and then started manual SIP configuration. Guess
+what? It worked - fully! Both inbound and outbound calls were working fine.&lt;/p&gt;
+
+&lt;p&gt;At this point, I still wasn&amp;#39;t sure where the problem was - all the possibilities
+were still, well, possibilities. So this morning I opened a support case with
+Flowroute. Realize that I&amp;#39;m about as small potatoes of a customer that Flowroute
+can have - I give them just a couple of bucks a month for
+DID, E911, and per-minute usage. Yet, each time I&amp;#39;ve opened a support case they
+have been responsive, thorough, and just plain fantastic.&lt;/p&gt;
+
+&lt;p&gt;Today was no exception,
+with the support person providing the key information that they have seen issues
+on OBi devices where &lt;em&gt;X_InboundCallRoute&lt;/em&gt; is misconfigured. The result of this
+is that everything is great on the Flowroute end, but the OBi device doesn&amp;#39;t
+know what to do with the call and gives a busy signal. She suggested making
+sure the value for this was &amp;quot;ph&amp;quot;. That seemed to ring a bell - I remember
+noticing that my manual configuration had this value, but the provisioned value
+from ObiTalk did not.&lt;/p&gt;
+
+&lt;p&gt;I thanked Flowroute support, but they didn&amp;#39;t stop there - they gave me instructions
+on doing a tcpdump so that if I wasn&amp;#39;t able to get it to work from ObiTalk, they
+could look at the SIP conversation to debug it. I was stunned! I&amp;#39;ve worked with
+dozens and dozens of vendors and providers over the years, and given
+several of them tcpdumps which they had no clue what to do with. In contrast,
+Flowroute was willing to dig this deep, into a problem for which I already had
+a workaround. That&amp;#39;s pretty cool. I can think of a few companies who could learn
+from this.&lt;/p&gt;
+
+&lt;p&gt;I am happy to report that after re-provisioning my Obi100 from ObiTalk, and then
+going into the advanced settings to reset &lt;em&gt;X_InboundCallRoute&lt;/em&gt;, I have a fully
+working, auto-provisioned device! It&amp;#39;s pretty annoying that ObiTalk
+corrupts, for some unknown reason, the correct value and overwrites it with a
+wrong one. I don&amp;#39;t know why they do this, but it nearly resulted in
+me returning my OBi100 to the store for a refund.&lt;/p&gt;
+
+&lt;p&gt;Flowroute - thanks again for your help and support in getting this fully working!&lt;/p&gt;
+
+&lt;p&gt;And for anyone reading this - if you are paying your phone company, cable company,
+or VOIP provider more than $5 a month for phone service you are getting seriously
+ripped off. Cancel that, pick up an OBi100 for $40, and go set up an account at
+&lt;a href=&quot;http://www.flowroute.com&quot;&gt;Flowroute&lt;/a&gt;. They will provision a DID instantly in
+the area code of your choosing, and you&amp;#39;ll be up and running pretty darn quick.
+By using auto-provisioning through ObiTalk and following the
+&lt;a href=&quot;https://support.flowroute.com/entries/26064109-Obihai-OBi202-Configuration-Guide&quot;&gt;config guide&lt;/a&gt;
+mentioned previously, you don&amp;#39;t have to know anything about SIP or configuring
+an ATA to get up and running.&lt;/p&gt;
+
+&lt;p&gt;Manually configuring a SIP device is not a particular fun task if you aren&amp;#39;t
+familiar with telephony - there are literally hundreds of configuration options,
+and it&amp;#39;s not always obvious what you are supposed to do. The config guide
+mentioned above will walk you through manual configuration through the device
+wizard on the OBi, so it&amp;#39;s not that hard, but some people might find doing it
+all through ObiTalk attractive (and perhaps want the additional features it
+provides as well).&lt;/p&gt;
+
+&lt;p&gt;I don&amp;#39;t know if Flowroute can port existing numbers,
+but we switched to bouncing through a Google Voice number several years ago,
+so our friends+family know to use that number, not the ANI (CallerID) number
+they see when we call them.&lt;/p&gt;
+
+&lt;p&gt;One final note - Obihai used to work directly with Google Voice, but Google
+disabled that service. Obihai is doing an incredibly &lt;em&gt;horrible&lt;/em&gt; job of getting
+the word out, as all of their web pages still say that this is a feature of
+the device - certainly they sell more devices with this false claim in their
+advertising, but I wonder how many get returned solely because of it. At any
+rate, it&amp;#39;s yet another case of Google killing off a useful service, but I can
+see how they weren&amp;#39;t making any money off it.&lt;/p&gt;
+</description>
+				<pubDate>Thu, 24 Jul 2014 02:54:05 +0000</pubDate>
+				<link>http://sail2software.com/2014/07/voip-solution-round-four.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/07/voip-solution-round-four.html</guid>
+			</item>
+		
+			<item>
+				<title>Microsoft Takes Down no-ip Domains</title>
+				<description>&lt;p&gt;Today I discovered that I was unable to resolve DNS to my server at home, which
+I access via a noip.com domain. Why? Because Microsoft was granted a federal
+court order to seize 22 of noip.com&amp;#39;s domains!&lt;/p&gt;
+
+&lt;p&gt;This was done without any attempt by Microsoft to resolve any perceived issues
+with noip.com, and Microsoft claims this was done due to noip.com domains
+hosting malware. This is an amusing statement when you consider the vast amount
+of spam and malware that comes from hotmail.com and other Microsoft properties -
+or as a result of Windows being insecure to begin with.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s the statement issued by noip.com: http://www.noip.com/blog/2014/06/30/ips-formal-statement-microsoft-takedown/ and the full text of this is below, as well.&lt;/p&gt;
+
+&lt;p&gt;Just another reminder to use open-source operating systems and stop supporting
+companies such as Microsoft, Apple, and even Google.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;We want to update all our loyal customers about the service outages that many of
+you are experiencing today. It is not a technical issue. This morning, Microsoft
+served a federal court order and seized 22 of our most commonly used domains
+because they claimed that some of the subdomains have been abused by creators of
+malware. We were very surprised by this. We have a long history of proactively
+working with other companies when cases of alleged malicious activity have been
+reported to us. Unfortunately, Microsoft never contacted us or asked us to block
+any subdomains, even though we have an open line of communication with Microsoft
+corporate executives.
+
+We have been in contact with Microsoft today. They claim that their intent is to
+only filter out the known bad hostnames in each seized domain, while continuing
+to allow the good hostnames to resolve. However, this is not happening.
+Apparently, the Microsoft infrastructure is not able to handle the billions of
+queries from our customers. Millions of innocent users are experiencing outages
+to their services because of Microsoft&amp;amp;#8217;s attempt to remediate hostnames
+associated with a few bad actors.
+
+Had Microsoft contacted us, we could and would have taken immediate action.
+Microsoft now claims that it just wants to get us to clean up our act, but its
+draconian actions have affected millions of innocent Internet users.
+
+Vitalwerks and No­-IP have a very strict abuse policy. Our abuse team is
+constantly working to keep the No-­IP system domains free of spam and malicious
+activity. We use sophisticated filters and we scan our network daily for signs
+of malicious activity. Even with such precautions, our free dynamic DNS service
+does occasionally fall prey to cyber scammers, spammers, and malware
+distributors. But this heavy-handed action by Microsoft benefits no one. We will
+do our best to resolve this problem quickly.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1&gt;Update&lt;/h1&gt;
+
+&lt;p&gt;Microsoft has no settled with no-ip.com and admitted wrongdoing. The
+details of the settlement were not made public, but I sure hope it was enough
+money.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Microsoft has reviewed the evidence provided by Vitalwerks and enters into the
+settlement confident that Vitalwerks was not knowingly involved with the
+subdomains used to support malware.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;More at http://www.noip.com/blog/2014/07/10/microsoft-takedown-details-updates/&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s a good technical read on how Microsoft doesn&amp;#39;t understand DNS and the
+mistakes they made in blocking all 5 million domains instead of just the few
+hundred they claim were involved in the malware:
+http://www.unchartedbackwaters.co.uk/pyblosxom/microsoft&lt;em&gt;noip&lt;/em&gt;dos&lt;/p&gt;
+
+&lt;p&gt;In case it&amp;#39;s not obvious - you should think twice if your networking infrastructure
+uses Microsoft DNS, DHCP, or other network services. Not only do they have a
+clear history of not following the RFCs, it&amp;#39;s pretty obvious they just honestly
+don&amp;#39;t understand how things work. It was suggested
+&lt;a href=&quot;http://forums.smallnetbuilder.com/showthread.php?t=18093&quot;&gt;here&lt;/a&gt; to send
+Microsoft a copy of the &lt;em&gt;DNS and Bind&lt;/em&gt; book - not a bad idea!&lt;/p&gt;
+</description>
+				<pubDate>Tue, 01 Jul 2014 14:43:59 +0000</pubDate>
+				<link>http://sail2software.com/2014/07/microsoft-takes-down-no-ip-domains.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/07/microsoft-takes-down-no-ip-domains.html</guid>
+			</item>
+		
+			<item>
+				<title>A Weird Headhunter Email</title>
+				<description>&lt;p&gt;Lake many engineers, I tend to get a lot of email from recruiters and head-hunters.
+Ever since I &lt;a href=&quot;http://linkedinclassaction.com/&quot;&gt;deleted my linkedin account&lt;/a&gt; the
+situation has gotten much better, yet I still get emails on occasion.&lt;/p&gt;
+
+&lt;p&gt;Last week I received the following email from a major technology company. I&amp;#39;ll
+leave a few details obscured, such as the company name - but I guarantee it&amp;#39;s a
+company you know if you are reading this. Maybe it&amp;#39;s because of that fact I was
+so surprised to receive a letter like this. I&amp;#39;ve obscured a couple of other
+minor details such as people and place names.&lt;/p&gt;
+
+&lt;p&gt;As an additional amusement, the subject of the email was &amp;quot;Our call on Friday&amp;quot;,
+as if we had scheduled something explicitly.&lt;/p&gt;
+
+&lt;p&gt;So weird, but read on!&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Clearly you have been quite popular with my colleagues here in [company withheld]
+over the past few years; I realize that you continue to hear from us asking if you
+are interested in chatting about career opportunities at [company withheld] (yes,
+I am one of them too). Since many of our outreach notes haven&amp;#39;t caught your eye,
+I thought I might try to convince you as to why I may be the one worth responding
+to:
+
+The address we have on your last resume says you lived in Diamond Mine, Oregon.
+I grew up on Black Diamond Mine Road in Oregon Springs, Colorado. Not bad.
+
+You maintain websites in your free time. I have a website I work on in my free
+time too. Granted, I&amp;#39;ve only mildly played in the HTML and it&amp;#39;s really a blog,
+but I make up in journalism what I lack in coding.
+
+You like gaming. I like gaming. Although I&amp;#39;m sure I wouldn&amp;#39;t stand a chance
+against you, because my definition of &amp;quot;gaming&amp;quot; is playing this entertaining
+app (read: not really gaming).
+
+Does that lightly peak your interest? If I&amp;#39;ve even remotely caught your attention,
+do mind returning my email and setting aside some time to chat with me later this
+week about your career activities and goals? I can give you a call at 12PM PST
+this Friday if you are available. What would be your preferred number?
+
+Lastly, I&amp;#39;m attaching the most recent version of your resume that we have on file.
+If you are so inclined to send an updated version, I&amp;#39;d gladly exchange them in our
+system. That way we can stop talking to you about old news and get excited about
+what you&amp;#39;re up to now. :)
+
+Looking forward to chatting with you this week!
+
+Kayley
+[company withheld]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Grasping at straws like that to find commonality makes this borderline stalking.
+It&amp;#39;s been a long, long time since I&amp;#39;ve done any gaming, and I guess this blog is
+the website I maintain (not an impressive body of work). As mentioned, I obscured
+people, street, city, and state names for obvious reasons of privacy.&lt;/p&gt;
+
+&lt;p&gt;Another bit of oddness is that the attached resume was 7 years old, yet I know
+for a fact they had a more recent one since I had talked to them a couple of
+times since then, and I know the colleagues of which she spoke had access to newer
+ones. Again, very very odd and not the sign of a top-notch recruiter.&lt;/p&gt;
+
+&lt;p&gt;I love the errors too - such as specifying the time as PST (it&amp;#39;s PDT). Even a
+recruiter should know that bit of technical detail, right? At least she got AM
+vs PM right! At least, I assume she didn&amp;#39;t want to talk to me at midnight. :-)&lt;/p&gt;
+
+&lt;p&gt;Oh, and any recruiters or head-hunters reading this - no we don&amp;#39;t have a call
+scheduled, and no I don&amp;#39;t want to talk to you, and yes I know I&amp;#39;m not on
+linkedin anymore.&lt;/p&gt;
+</description>
+				<pubDate>Wed, 25 Jun 2014 02:35:33 +0000</pubDate>
+				<link>http://sail2software.com/2014/06/a-weird-headhunter-email.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/06/a-weird-headhunter-email.html</guid>
+			</item>
+		
+			<item>
+				<title>systemd is in the trees</title>
+				<description>&lt;p&gt;You read that right - systemd is &amp;quot;in the trees... It&amp;#39;s coming!&amp;quot; *&lt;/p&gt;
+
+&lt;p&gt;If you pay attention to things happening in the world of Linux, you probably
+know that &lt;a href=&quot;http://freedesktop.org/wiki/Software/systemd/&quot;&gt;systemd&lt;/a&gt; will be
+replacing sysvinit for Debian systems.&lt;/p&gt;
+
+&lt;p&gt;In the last couple of days I&amp;#39;ve switched 5 Debian testing/Jessie systems
+from sysvinit to systemd. Overall, it&amp;#39;s been a smooth transition, with just a
+couple of problems I ran into which were not ultimately systemd issues.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s easy to test out, because you can selectively boot with systemd as long
+as you don&amp;#39;t install &lt;strong&gt;systemd-sysv&lt;/strong&gt;, which enables systemd by default. I
+think this is a good way to test, and if the system boots OK and everything
+works as expected, you can then go all-in and enable systemd by default.&lt;/p&gt;
+
+&lt;p&gt;I also discovered the debian systemd implementation doesn&amp;#39;t run &lt;strong&gt;/etc/rc.local&lt;/strong&gt;
+by default, but that&amp;#39;s easy to solve as well.&lt;/p&gt;
+
+&lt;p&gt;The debian wiki has
+&lt;a href=&quot;https://wiki.debian.org/systemd&quot;&gt;excellent documentation on systemd&lt;/a&gt; and
+includes links for other common distributions as well.&lt;/p&gt;
+
+&lt;p&gt;As far as the two (non systemd related) issues I ran into:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;On one server system, any USB related operations would hang with a kernel call
+stack dumped to dmesg. It turned out that this was some issue related to
+upgrading to the 3.13 kernel and had nothing to do with systemd. I verified this
+because I ran into the same issue when booting with sysvinit under the kernel. I
+was able to workaround this problem by unplugging a certain USB device (an
+external hard drive) until after the system booted. This system is working fine
+with systemd, and the external drive, I just have to unplug it if I need to
+reboot. Had I simply rebooted before trying out systemd I would have found this
+issue and not been debugging the wrong thing.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;On my Acer C720 chromebook (yes, it runs Debian), the kernel would panic
+when I attempted to boot with &lt;strong&gt;init=/bin/systemd&lt;/strong&gt;. I&amp;#39;m a bit embarrassed to
+admit what the cause was... Well, I forgot one little important step in this
+process: I forgot to install systemd!&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Installing systemd&lt;/h2&gt;
+
+&lt;p&gt;Make sure your system is fully up to date and running the latest kernel. I.e.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo aptitude full-upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;At this point you should reboot if any major updates, such as a new kernel,
+were installed. You only want to be debugging one problem, not two as I
+described in my issues above!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Now is a really good time to make a full backup of your system, as well.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To start with, we&amp;#39;ll install systemd alongside sysvinit:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo aptitude install systemd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will likely bring along a few dependencies, such as &lt;em&gt;libpam-systemd&lt;/em&gt;,
+&lt;em&gt;libsystemd-daemon0&lt;/em&gt;, &lt;em&gt;libsystemd-journal0&lt;/em&gt;, and &lt;em&gt;libsystemd-login0&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Testing systemd&lt;/h2&gt;
+
+&lt;p&gt;Now you&amp;#39;ll need to reboot and manually edit the boot line in grub to enable
+systemd. To do this, hit &amp;#39;&lt;strong&gt;e&lt;/strong&gt;&amp;#39; at the grub boot menu for your kernel,
+and append &lt;strong&gt;init=/bin/systemd&lt;/strong&gt; to the line that starts with &lt;strong&gt;linux&lt;/strong&gt;. It
+might look something like the following, depending on the options for your
+specific kernel:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;linux   /vmlinuz-3.13-1-amd64 root=/dev/mapper/root-root ro quiet init=/bin/systemd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Press &lt;strong&gt;F10&lt;/strong&gt; or &lt;strong&gt;ctrl+x&lt;/strong&gt; to boot. If all goes well, and it should, your
+system will boot and run like normal. You can tell if systemd is in use if
+&lt;em&gt;PID&lt;/em&gt; 1 is &lt;strong&gt;systemd* and not **init&lt;/strong&gt;, for example:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ ps -p1
+PID TTY          TIME CMD
+  1 ?        00:00:01 systemd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Watch out! some &lt;strong&gt;ps&lt;/strong&gt; options will show it as &lt;em&gt;/sbin/init&lt;/em&gt;, so be careful
+not to confuse yourself.&lt;/p&gt;
+
+&lt;p&gt;At this point, we can also use systemctl:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ systemctl status
+[long output deleted]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The nice thing about testing this way is that the systemd switch is not
+persistent. If you reboot again, you are back to sysvinit.&lt;/p&gt;
+
+&lt;p&gt;If you are happy at this point, and your system is stable, you can install
+&lt;em&gt;systemd-sysv&lt;/em&gt;, which will remove sysvinit. You can also run in this testing
+configuration for a week or so if you prefer.&lt;/p&gt;
+
+&lt;h2&gt;Enabling systemd by default&lt;/h2&gt;
+
+&lt;p&gt;Once you do this, there&amp;#39;s no going back! If your system started ok with
+systemd, it should be safe to do this - just be aware that you absorb some
+risk...&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo aptitude install systemd-sysv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will remove sysvinit and make systemd the default. Next, reboot:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo shutdown -r now
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Your system should reboot cleanly with systemd. Once again, you can use
+&lt;strong&gt;systemctl status&lt;/strong&gt; to verify that everything looks good.&lt;/p&gt;
+
+&lt;h2&gt;Longer term testing&lt;/h2&gt;
+
+&lt;p&gt;If you aren&amp;#39;t ready to commit to systemd, you can always modify your grub
+configuration so that it boots with systemd by default, but if you run into
+trouble you can always disable it again. Note that if you have a non-booting
+system due to systemd you&amp;#39;ll have to boot a rescue livecd/liveusb and modify
+&lt;strong&gt;/boot/grub/grub.cfg&lt;/strong&gt; manually.&lt;/p&gt;
+
+&lt;p&gt;To configure grub to boot with systemd by default, add &lt;strong&gt;init=/bin/systemd&lt;/strong&gt;
+to the &lt;strong&gt;GRUB&lt;em&gt;CMDLINE&lt;/em&gt;LINUX_DEFAULT&lt;/strong&gt; line of &lt;strong&gt;/etc/default/grub&lt;/strong&gt; such that
+it looks something like:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;quiet init=/bin/systemd&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that yours may look different.&lt;/p&gt;
+
+&lt;h2&gt;Configuring rc.local under systemd&lt;/h2&gt;
+
+&lt;p&gt;Finally, let&amp;#39;s get &lt;strong&gt;rc.local&lt;/strong&gt; working under systemd.&lt;/p&gt;
+
+&lt;p&gt;Create the following file as &lt;strong&gt;/etc/systemd/system/rc-local.service&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+
+[Unit]
+Description=/etc/rc.local Compatibility
+ConditionPathExists=/etc/rc.local
+
+[Service]
+Type=forking
+ExecStart=/etc/rc.local start
+TimeoutSec=0
+StandardOutput=tty
+RemainAfterExit=yes
+SysVStartPriority=99
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This file needs to be executable, or systemd won&amp;#39;t run it (I discovered this
+the hard way), and we need to tell systemd to enable our new service. I
+received a comment that the /etc/systemd/system/*.server files actually don&amp;#39;t
+need to be executable. Perhaps something has changed, but I found it did need
+to be executable, and all the other .service files from official packages were
+executable as well. I would simply suggest setting the mode for rc-local.service
+to be consistent with all the other .service files.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo chmod +x /etc/systemd/system/rc-local.service
+$ sudo systemctl enable rc-local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After rebooting, you can use &lt;strong&gt;systemctl&lt;/strong&gt; to check that everything worked
+as expected:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ systemctl status rc.local
+rc-local.service - /etc/rc.local Compatibility
+   Loaded: loaded (/etc/systemd/system/rc-local.service; enabled)
+   Active: active (exited) since Sat 2014-03-29 15:49:01 PDT; 1h 15min ago
+  Process: 1097 ExecStart=/etc/rc.local start (code=exited, status=0/SUCCESS)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And that&amp;#39;s all there is to it! So far, systemd is a rather nice upgrade
+over the aging sysvinit. It will take some time for all your various services
+and programs to get updated with systemd init scripts, but until then the
+default systemd compatibility mode will still start all those scripts for you.&lt;/p&gt;
+
+&lt;p&gt;* Yes, this is a reference to the Kate Bush lyric from
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Hounds_of_Love&quot;&gt;&lt;em&gt;Hounds of Love&lt;/em&gt;&lt;/a&gt;,
+originating in the movie
+&lt;a href=&quot;http://www.imdb.com/title/tt0050766/&quot;&gt;&lt;em&gt;Curse of the Demon&lt;/em&gt;&lt;/a&gt; aka
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Night_of_the_demon&quot;&gt;&lt;em&gt;Night of the Demon&lt;/em&gt;&lt;/a&gt;.
+Since systemd is about managing system daemons, somehow the line
+&amp;quot;It&amp;#39;s in the trees... It&amp;#39;s coming!&amp;quot; popped into my head as I was thinking
+about a good title for this article.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 29 Mar 2014 23:02:40 +0000</pubDate>
+				<link>http://sail2software.com/2014/03/systemd-is-in-the-trees.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/03/systemd-is-in-the-trees.html</guid>
+			</item>
+		
+			<item>
+				<title>A better dynamic MOTD</title>
+				<description>&lt;p&gt;&lt;img src=&quot;/images/dynamic-motd.png&quot; alt=&quot;A better dynamic MOTD&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Debian based systems (and derivatives such as Ubuntu) have a facility built into
+PAM that can display a dynamically generated MOTD on login. Debian doesn&amp;#39;t use
+this by default, but Ubuntu does. I wanted to add this to my Debian
+testing/Jessie boxes, but the Ubuntu version performs horribly - if you&amp;#39;ve ever
+wondered why Ubuntu hangs for a second or so upon login while displaying the
+MOTD, this is why.&lt;/p&gt;
+
+&lt;p&gt;Taking a closer look at the Ubuntu &lt;em&gt;/etc/update-motd.d/&lt;/em&gt; files, it was clear to
+me why the default Ubuntu implementation is so slow - Two reasons, in fact.
+First, text that doesn&amp;#39;t change frequently is generated every time, such as the
+hostname banner and the script to display the number of available updates. The
+latter is horribly slow and something that doesn&amp;#39;t need to be checked at &lt;em&gt;every&lt;/em&gt;
+login anyway. Second, the script for truly dynamic content forks way more
+processes than necessary and can be easily tuned and improved.&lt;/p&gt;
+
+&lt;p&gt;With my revisions to these scripts and process, my logins are instantaneous and
+I&amp;#39;ve even added running the MOTD display on each invocation of
+&lt;a href=&quot;http://software.schmorp.de/pkg/rxvt-unicode&quot;&gt;urxvt&lt;/a&gt;, the terminal program I
+use.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s how to implement a much better dynamic MOTD. The source for this is
+available in my &lt;a href=&quot;https://github.com/scotte/linux-configs&quot;&gt;linux-configs github project&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Make static content static&lt;/h2&gt;
+
+&lt;p&gt;What I did was separate the scripts into two configuration directories - one
+containing dynamic content, generated on each execution (just like the default),
+and a second for static content, which is only generated occasionally via cron
+(every 30 minutes).&lt;/p&gt;
+
+&lt;p&gt;The cron job uses &lt;em&gt;run-parts&lt;/em&gt; to run the static content scripts, which write to
+&lt;em&gt;/var/run&lt;/em&gt;. These files are then read directly via the dynamic content scripts.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s a brief overview of the layout, but more detail about the scripts is
+provided below as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/scotte/linux-configs/tree/master/etc/update-motd_local.d&quot;&gt;/etc/update-motd_local.d&lt;/a&gt;
+contains the static content scripts, run by a simple cron job.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/scotte/linux-configs/tree/master/etc/update-motd.d&quot;&gt;/etc/update-motd.d/&lt;/a&gt;
+contains the dynamic content scripts. These scripts are also responsible for
+displaying the static files from /var/run. There must at least be one script
+in this directory for each static script, but there can also be additional
+dynamic content scripts with no corresponding static content. Note that scripts
+that simply cat the statically generated files are simply symbolic links to
+&lt;em&gt;00-header&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;/var/run/motd_local-&lt;/em&gt; will contain the static content files.&lt;/p&gt;
+
+&lt;p&gt;And &lt;a href=&quot;https://github.com/scotte/linux-configs/blob/master/configs/crontab-root&quot;&gt;here&amp;#39;s the crontab&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Make dynamic content faster&lt;/h2&gt;
+
+&lt;p&gt;As mentioned above, the default &lt;em&gt;/etc/update-motd.d/10-sysinfo&lt;/em&gt; file from Ubuntu
+does considerable more forking than is necessary - even doing things such as&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;cat foo | awk   # Don&amp;#39;t do this!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;instead of:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;awk &amp;lt;foo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The cat and pipe are entirely unnecessary.&lt;/p&gt;
+
+&lt;p&gt;Additionally, some of the awk scripts piped to other awk scripts, or were pipes
+from grep to awk, which can all be handled via a single awk script. Also,
+commands like &amp;quot;ps&amp;quot; or &amp;quot;free&amp;quot; were being run when the information is already
+available in &amp;quot;/proc&amp;quot; My resulting script runs about 3 times faster than the
+original, entirely excluding the static content improvements, and is
+significantly nicer on system resources!&lt;/p&gt;
+
+&lt;p&gt;Where ssh would hang for a second or so on each login, it&amp;#39;s now instantaneous.&lt;/p&gt;
+
+&lt;p&gt;You&amp;#39;ll need figlet and update-notifier-common packages, if you don&amp;#39;t already
+have them.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo aptitude install figlet update-notifier-common
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;A closer look at the scripts&lt;/h2&gt;
+
+&lt;h3&gt;The dynamic scripts&lt;/h3&gt;
+
+&lt;p&gt;Here&amp;#39;s the updated &lt;em&gt;/etc/update-motd.d/10-sysinfo&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#!/bin/bash
+#
+#    10-sysinfo - generate the system information
+#    Copyright (c) 2013 Nick Charlton
+#
+#    Authors: Nick Charlton &amp;lt;hello@nickcharlton.net&amp;gt;
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc.,
+#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+#
+# The upstream version of this script was very inefficient - forking processes
+# when not needed. This version significantly reducses the number of processes
+# required to get the same info, and as a result is much, much faster.
+#
+# Additionally, static-ish stuff like the hostname and packages to install
+# is only generated once every 30 minutes (or as configured in cron).
+#
+# As a result, this shaves off the amount of time required to login to the system
+# by about 1 second or so, and when running as part of urxvt is nearly instant.
+
+load=`awk &amp;#39;{print $1}&amp;#39; /proc/loadavg`
+root_usage=`df -h / | awk &amp;#39;/\// {print $(NF-1)}&amp;#39;`
+memory_usage=`awk &amp;#39;/^MemTotal:/ {total=$2} /^MemFree:/ {free=$2} /^Buffers:/ {buffers=$2} /^Cached:/ {cached=$2} END { printf(&amp;quot;%3.1f%%&amp;quot;, (total-(free+buffers+cached))/total*100)}&amp;#39; /proc/meminfo`
+swap_usage=`awk &amp;#39;/^SwapTotal:/ { total=$2 } /^SwapFree:/ { free=$2} END { printf(&amp;quot;%3.1f%%&amp;quot;, (total-free)/total*100 )}&amp;#39; /proc/meminfo`
+users=`users | wc -w`
+time=`awk &amp;#39;{uptime=$1} END {days = int(uptime/86400); hours = int((uptime-(days*86400))/3600); printf(&amp;quot;%d days, %d hours&amp;quot;, days, hours)}&amp;#39; /proc/uptime`
+processes=`/bin/ls -d /proc/[0-9]* | wc -l`
+ip=`/sbin/ifconfig eth0 | awk -F&amp;quot;[: ]+&amp;quot; &amp;#39;/inet addr:/{print $4}&amp;#39;`
+
+printf &amp;quot;System load:\t%s\t\tIP Address:\t%s\n&amp;quot; $load $ip
+printf &amp;quot;Memory usage:\t%s\t\tSystem uptime:\t%s\n&amp;quot; $memory_usage &amp;quot;$time&amp;quot;
+printf &amp;quot;Usage on /:\t%s\t\tSwap usage:\t%s\n&amp;quot; $root_usage $swap_usage
+printf &amp;quot;Local Users:\t%s\t\tProcesses:\t%s\n&amp;quot; $users $processes
+echo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The scripts that cat the static content look like the below, and actually,
+there&amp;#39;s just one of these, the rest are simply symbolic links to the first, as
+we use the script filename to determine which static file to show:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#!/bin/sh
+#
+# symlink this to additiona files as needed, matching scripts in
+# /etc/update-motd_local.d
+
+cat /var/run/motd_local-$(basename $0)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In my case, I have &lt;em&gt;00-header&lt;/em&gt;, &lt;em&gt;20-sysinfo&lt;/em&gt;, and &lt;em&gt;90-footer&lt;/em&gt;, matching the same
+dynamic scripts.&lt;/p&gt;
+
+&lt;h3&gt;The static scripts&lt;/h3&gt;
+
+&lt;p&gt;The static scripts are &lt;em&gt;00-header&lt;/em&gt;, &lt;em&gt;20-sysinfo&lt;/em&gt;, and &lt;em&gt;90-footer&lt;/em&gt;, as listed
+just above. There is &lt;em&gt;not&lt;/em&gt; a &lt;em&gt;10-sysinfo&lt;/em&gt; script in the static scripts, since
+that is dynamic only. Make sure you understand &lt;em&gt;run-parts&lt;/em&gt;, as it is key to how
+these scripts are executed.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s take a look at &lt;em&gt;00-header&lt;/em&gt; next. This isn&amp;#39;t much different than the
+original, except we dup the stdout file descriptor to write to our file in
+/var/run (a partial filename is passed in as the first argument).&lt;/p&gt;
+
+&lt;p&gt;I also chose a &lt;a href=&quot;http://www.figlet.org/&quot;&gt;figlet&lt;/a&gt; font that I like better as
+well, which doesn&amp;#39;t take up quite as much space and, well, it looks spiffy.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#!/bin/sh
+#
+#    00-header - create the header of the MOTD
+#    Copyright (c) 2013 Nick Charlton
+#    Copyright (c) 2009-2010 Canonical Ltd.
+#
+#    Authors: Nick Charlton &amp;lt;hello@nickcharlton.net&amp;gt;
+#             Dustin Kirkland &amp;lt;kirkland@canonical.com&amp;gt;
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc.,
+#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+OUT=${1}$(basename $0)
+exec &amp;gt;${OUT}
+
+[ -r /etc/lsb-release ] &amp;amp;&amp;amp; . /etc/lsb-release
+
+if [ -z &amp;quot;$DISTRIB_DESCRIPTION&amp;quot; ] &amp;amp;&amp;amp; [ -x /usr/bin/lsb_release ]; then
+        # Fall back to using the very slow lsb_release utility
+        DISTRIB_DESCRIPTION=$(lsb_release -s -d)
+fi
+
+figlet -f smslant $(hostname)
+
+printf &amp;quot;Welcome to %s (%s).\n&amp;quot; &amp;quot;$DISTRIB_DESCRIPTION&amp;quot; &amp;quot;$(uname -r)&amp;quot;
+printf &amp;quot;\n&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here&amp;#39;s &lt;em&gt;20-sysinfo&lt;/em&gt; - the most expensive part of the original script, which
+determines how many packages are out of date and whether a system reboot is
+needed:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#!/bin/bash
+#
+#    20-sysinfo - generate the system information
+#    Copyright (c) 2013 Nick Charlton
+#
+#    Authors: Nick Charlton &amp;lt;hello@nickcharlton.net&amp;gt;
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc.,
+#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+OUT=${1}$(basename $0)
+exec &amp;gt;${OUT}
+
+/usr/lib/update-notifier/apt-check --human-readable
+/usr/lib/update-notifier/update-motd-reboot-required
+echo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And finally, the diminutive &lt;em&gt;90-footer&lt;/em&gt; which just appends the content of
+&lt;em&gt;/etc/motd.tail&lt;/em&gt; if it exists:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;#!/bin/sh
+#
+#    90-footer - write the admin&amp;#39;s footer to the MOTD
+#    Copyright (c) 2013 Nick Charlton
+#    Copyright (c) 2009-2010 Canonical Ltd.
+#
+#    Authors: Nick Charlton &amp;lt;hello@nickcharlton.net&amp;gt;
+#             Dustin Kirkland &amp;lt;kirkland@canonical.com&amp;gt;
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc.,
+#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+OUT=${1}$(basename $0)
+exec &amp;gt;${OUT}
+
+[ -f /etc/motd.tail ] &amp;amp;&amp;amp; cat /etc/motd.tail || true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Those scripts could probably use some fencing, such as checking that the
+directory argument is valid, and that the directory exists.&lt;/p&gt;
+
+&lt;h3&gt;File layout in /etc&lt;/h3&gt;
+
+&lt;p&gt;The layout of &lt;strong&gt;/etc/update-motd.d&lt;/strong&gt; and &lt;strong&gt;/etc/update-motd_local.d&lt;/strong&gt; should look
+like the following:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ ls -l update-motd.d/*
+-rwxr-xr-x 1 root root  144 Mar 29 14:58 update-motd.d/00-header
+-rwxr-xr-x 1 root root 2639 Mar 29 15:21 update-motd.d/10-sysinfo
+lrwxrwxrwx 1 root root    9 Mar 29 14:58 update-motd.d/20-sysinfo -&amp;gt; 00-header
+lrwxrwxrwx 1 root root    9 Mar 29 14:58 update-motd.d/90-footer -&amp;gt; 00-header
+
+$ ls -l update-motd_local.d/*
+-rwxr-xr-x 1 root root 1372 Mar 29 14:58 update-motd_local.d/00-header
+-rwxr-xr-x 1 root root 1044 Mar 29 14:58 update-motd_local.d/20-sysinfo
+-rwxr-xr-x 1 root root 1088 Mar 29 14:58 update-motd_local.d/90-footer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note the relationship between files in &lt;em&gt;update-motd_local.d&lt;/em&gt;, and the corresponding
+file/link in &lt;em&gt;update-motd.d&lt;/em&gt;, along with scripts for dynamic content.&lt;/p&gt;
+
+&lt;h3&gt;The crontab entry&lt;/h3&gt;
+
+&lt;p&gt;The crontab to run the static scripts every 30 minutes is quite trivial:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;*/30 * * * * /bin/run-parts --arg=/var/run/motd_local- /etc/update-motd_local.d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Important: Don&amp;#39;t forget to run that same command in &lt;em&gt;/etc/rc.local&lt;/em&gt; or the static
+content files won&amp;#39;t be populated in /var/run until the cron job runs!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3&gt;My per-user scripts and configuration&lt;/h3&gt;
+
+&lt;p&gt;Here&amp;#39;s my &lt;em&gt;~/bin/urxvt&lt;/em&gt; that I use to launch urxvt:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;exec /usr/bin/urxvt -e sh -c &amp;quot;run-parts /etc/update-motd.d; exec $SHELL&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that here we are executing &lt;strong&gt;run-parts&lt;/strong&gt; on the dynamic scripts, where
+the crontab and /etc/rc.local execute on the static scripts.&lt;/p&gt;
+
+&lt;p&gt;And finally, my &lt;em&gt;i3&lt;/em&gt; keybinding line:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;bindsym $mod+Return exec bin/urxvt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;A few other details&lt;/h3&gt;
+
+&lt;p&gt;The only other non-obvious detail is that &lt;em&gt;/etd/motd&lt;/em&gt; needs to be a symbolic
+link to &lt;em&gt;/var/run/motd&lt;/em&gt;, which you can set up like so:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo rm /etc/motd
+$ sudo ln -s /var/run/motd /etc/motd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There is a little bit of subtle magic here - &lt;strong&gt;/var/run/motd&lt;/strong&gt; may not exist when
+you create the symbolic link, but that&amp;#39;s actually OK - it will be created when
+the motd is generated.&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;#39;t already have them, you&amp;#39;ll need a couple of packages:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo aptitude install figlet update-notifier-common
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Until either the crontab runs, or a reboot executes /etc/rc.local, the static
+contant won&amp;#39;t be present. To do a one-time update of it, run:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ sudo sudo /bin/run-parts --arg=/var/run/motd_local- /etc/update-motd_local.d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And that about covers it! With this, I have a nice dynamic MOTD which doesn&amp;#39;t
+slow me down.&lt;/p&gt;
+
+&lt;p&gt;Note that the scripts above may become out of date over time. Check my &lt;a href=&quot;https://github.com/scotte/linux-configs&quot;&gt;linux-configs github repo&lt;/a&gt; for the latest, up-to-date version.&lt;/p&gt;
+</description>
+				<pubDate>Sat, 08 Mar 2014 03:51:08 +0000</pubDate>
+				<link>http://sail2software.com/2014/03/a-better-dynamic-motd.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/03/a-better-dynamic-motd.html</guid>
+			</item>
+		
+			<item>
+				<title>Port knocking with single packet authorization</title>
+				<description>&lt;p&gt;A few weeks ago I discovered &lt;a href=&quot;http://www.cipherdyne.org/fwknop/&quot;&gt;fwknop&lt;/a&gt; which
+is a very clever mechanism to secure services. I&amp;#39;m using this so I can ssh into a
+Linux server on my home network without opening the sshd port up to the world.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.cipherdyne.org/images/fwknop_tutorial_network_diagram.png&quot;/&gt;&lt;/p&gt;
+
+&lt;p&gt;Single packet authorization works by sending a single, encrypted UDP packet to a
+remote system. The packet is never ACKd or replied to, but if it&amp;#39;s validated by
+the remote system, then it uses iptables to temporarily open up the service port
+for access (the filter is limited to the client&amp;#39;s IP address). If the packet
+isn&amp;#39;t valid, it is simply ignored. In either case, to an external observer the
+packet appears to go into a black hole. After a user-configurable amount of time
+(30 seconds by default), the service port is closed, but stateful iptable rules
+keep existing connections active.&lt;/p&gt;
+
+&lt;p&gt;This is really great because all ports to my home IP address appear, from the
+internet, to be black holes - my router firewall drops all incoming packets, and
+the specific ports open for fwknop are dropped via iptables on my Linux server.&lt;/p&gt;
+
+&lt;p&gt;Configuring this solution isn&amp;#39;t too difficult if you are familiar with networking
+and Linux network and system administration, but it can be a bit tricky to test.&lt;/p&gt;
+
+&lt;h2&gt;Server Configuration&lt;/h2&gt;
+
+&lt;p&gt;There are four areas that need to be configured on the server-side:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fwknop needs to be configured with appropriate ports and security keys&lt;/li&gt;
+&lt;li&gt;iptables policy needs to be created for each service port&lt;/li&gt;
+&lt;li&gt;Services need to listen on appropriate ports&lt;/li&gt;
+&lt;li&gt;Router firewall needs to forward fwknop and service ports to the server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;My per-service iptables policies are done in &lt;em&gt;/etc/rc.local&lt;/em&gt; and look like:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;/sbin/iptables -I INPUT 2 -i eth0 -p tcp --dport 54321 -j DROP
+/sbin/iptables -I INPUT 2 -i eth0 -p tcp --dport 54321 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It&amp;#39;s subtle, but note the rule order of &amp;quot;2&amp;quot; is used, instead of the default (which is &amp;quot;1&amp;quot;).
+This is to make sure that these rules are in the table &lt;em&gt;after&lt;/em&gt; the FWKNOP_INPUT rule, which
+fwknop will create when it starts. Likewise, the order of the rules above is important, and
+are in the order they are to make sure the ESTABLISHED,RELATED rule ends up before the DROP
+rule. When loaded, the second rule will displace the first as they have the same priority.&lt;/p&gt;
+
+&lt;p&gt;Before you start fwknop, and open up ports on your firewall, don&amp;#39;t forget to make sure these
+rules are in place. In that case, if you create these rules manually, use rule order &amp;quot;1&amp;quot;
+instead of &amp;quot;2&amp;quot;, as you are creating the rules before fwknop has added it&amp;#39;s rule.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;/etc/fwknop/fwknopd.conf&lt;/em&gt; excerpt from the server:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;PCAP_FILTER                 udp port 12345;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On my debian testing/Jessie server I also had to add this line to &lt;em&gt;fwknopd.conf&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;PCAP_DISPATCH_COUNT            1;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;/etc/fwknop/access.conf&lt;/em&gt; excerpt from the server:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;SOURCE                    ANY
+REQUIRE_SOURCE_ADDRESS    Y
+KEY_BASE64                SOME_BASE64_ENCODED_KEY
+HMAC_KEY_BASE64           SOME_BASE64_ENCODED_HMAC_KEY
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I didn&amp;#39;t use the default port as a bit of added measure, and additionally I&amp;#39;m
+running sshd on a different port as well, as a small added bit of security.&lt;/p&gt;
+
+&lt;p&gt;Adding an additional port in sshd is really simple, just add an additional Port
+line and restart sshd:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Port 22
+Port 54321
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Only port 54321 is port forwarded on the router, but I can still use port 22
+while on my home network.&lt;/p&gt;
+
+&lt;h2&gt;Client Configuration&lt;/h2&gt;
+
+&lt;p&gt;On the client, I have a simple script that:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Sends the authorization packet via the fwknop client&lt;/li&gt;
+&lt;li&gt;ssh&amp;#39;s into my server on the configured sshd port&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The script looks something like:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;fwknop my.host.fqdn
+ssh -p 54321 my.host.fqdn
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Excerpt from &lt;em&gt;.fwknoprc&lt;/em&gt; on the client:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[my.host.fqdn]
+ACCESS                      tcp/54321
+SPA_SERVER                  my.host.fqdn
+SPA_SERVER_PORT             12345
+KEY_BASE64                  SOME_BASE64_ENCODED_KEY
+HMAC_KEY_BASE64             SOME_BASE64_ENCODED_HMAC_KEY
+USE_HMAC                    Y
+ALLOW_IP                    resolve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;From this config, you can see that the fwknop port is 12345, and sshd is
+listening on 54321 (though these aren&amp;#39;t the real ports or FQDN in use). The
+KEY&lt;em&gt;BASE64 and HMAC&lt;/em&gt;KEY_BASE64 values need to match between client and server. I
+chose to use
+&lt;a href=&quot;http://www.cipherdyne.org/fwknop/docs/fwknop-tutorial.html#fwknop-rijndael&quot;&gt;symmetric keys&lt;/a&gt;
+but you can use asymmetric keys via GPG if you prefer.&lt;/p&gt;
+
+&lt;p&gt;See the fwknop documentation for more information on configuring everything.
+There are a lot of options, so you&amp;#39;ll have to figure out what to do based on
+your individual needs.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m using a free dynamic DNS service so that I don&amp;#39;t have to remember the
+dynamic IP address assigned by my ISP.&lt;/p&gt;
+
+&lt;p&gt;This has been tested with Debian on both stable/Wheezy and testing/Jessie. For Wheezy,
+make sure you are using the latest version from wheezy-backports.&lt;/p&gt;
+
+&lt;h2&gt;Further Reading&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&quot;http://www.cipherdyne.org/fwknop/docs/fwknop-tutorial.html&quot;&gt;documentation&lt;/a&gt;
+is decent, and I&amp;#39;ve found this solution works very nicely for me, without
+exposing &lt;em&gt;any&lt;/em&gt; detectible open ports on my network. Unlike with simple port
+knocking, it is virtually impossible for someone to use packet capture replay to
+access the system. Because all packets are dropped unless the authorization
+packet opens up the service port, it is completely undetectable via port
+scanning that fwknop is even in use.&lt;/p&gt;
+
+&lt;p&gt;Give it a try!&lt;/p&gt;
+</description>
+				<pubDate>Sat, 01 Mar 2014 17:48:45 +0000</pubDate>
+				<link>http://sail2software.com/2014/03/port-knocking-with-single-packet-authorization.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/03/port-knocking-with-single-packet-authorization.html</guid>
+			</item>
+		
+			<item>
+				<title>Blog Migrated to Github</title>
+				<description>&lt;p&gt;This blog is now being hosted on &lt;a href=&quot;http://pages.github.com&quot;&gt;github pages&lt;/a&gt; using
+&lt;a href=&quot;http://octopress.org&quot;&gt;octopress&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A large part of the reason for this is diversification away from Google. As
+much as I love Google for many reasons (and will continue to be a faithful
+Android user for the near future), I am moving most of my stuff off Google
+infrastructure.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ll write more about the reasons for this later, as well as mention which
+services I&amp;#39;ve migrated to (email, search, browser, etc).&lt;/p&gt;
+
+&lt;p&gt;Please bear with me as I finish migrating all the content and fix up some formatting, images, and such here and there...&lt;/p&gt;
+</description>
+				<pubDate>Sat, 22 Feb 2014 18:00:51 +0000</pubDate>
+				<link>http://sail2software.com/2014/02/blog-migrated-to-github.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/02/blog-migrated-to-github.html</guid>
+			</item>
+		
+			<item>
+				<title>i3 - A Tiling Window Manager for Mortals</title>
+				<description>  &lt;div class=&#39;post&#39;&gt;
+    After kicking around a few different desktop environments and
+    window managers, I&#39;ve settled in with &lt;a href=
+    &quot;http://i3wm.org/&quot;&gt;i3&lt;/a&gt; as my window manager of choice - and
+    no desktop environment at all. This is by far the most
+    productive user interface I&#39;ve used and is now in residence on
+    my home laptop, work laptop, work desktop, and shiny new
+    Intel-based Chromebook (as well as it&#39;s predecessor - an
+    ARM-based Chromebook). I&#39;m still using the &lt;a href=
+    &quot;https://www.debian.org/releases/testing/&quot;&gt;Debian Jessie/testing&lt;/a&gt; distribution of Linux, which has been
+    fantastic - and I can&#39;t recommend it enough.&lt;br&gt;
+    &lt;br&gt;
+
+    &lt;div class=&quot;separator&quot; style=
+    &quot;clear: both; text-align: center;&quot;&gt;
+      &lt;a href=
+      &quot;/images/i3wm_screenshot.png&quot;
+      imageanchor=&quot;1&quot; style=
+      &quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=
+      &quot;/images/i3wm_screenshot.png&quot;
+      height=&quot;356&quot; width=&quot;640&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;&lt;br&gt;
+    &lt;br&gt;
+    You can read &lt;a href= &quot;http://www.sail2software.com/2013/10/my-bluetile-based-xmonad-configuration.html&quot;&gt;my previous blog&lt;/a&gt; for the few weeks that I used a
+    BlueTile-derived &lt;a href=&quot;http://xmonad.org/&quot;&gt;xmonad&lt;/a&gt;
+    configuration on top of the &lt;a href=
+    &quot;http://www.xfce.org/&quot;&gt;xfce&lt;/a&gt; desktop environment. While this
+    worked pretty well most of the time, and was fairly productive,
+    xmonad is a pain as it requires writing haskell code to change
+    the configuration. A found this to be a bit burdensome over
+    time - when I just want to tweak a setting I&#39;d much rather just
+    tweak the setting, and not have to debug code.&lt;br&gt;
+    &lt;br&gt;
+    i3 is just about as flexible as xmonad, but everything is in a
+    regular configuration file, so it doesn&#39;t require users to
+    write their own window manager in haskell to get the
+    configuration you want.&lt;br&gt;
+    &lt;br&gt;
+    It&#39;s easy to plug-in different implementations in i3 for cases
+    where the configuration isn&#39;t sufficient - for example I found
+    the default i3 status bar to be a bit limiting for the
+    configuration I wanted, so I handle that via &lt;a href=
+    &quot;http://conky.sourceforge.net/&quot;&gt;conky&lt;/a&gt;, outputting in JSON
+    (i.e. not using conky&#39;s X integration at all) to i3. System
+    notifications come via &lt;a href=
+    &quot;http://www.knopwob.org/dunst/index.html&quot;&gt;dunst&lt;/a&gt;. &lt;a href=
+    &quot;http://tools.suckless.org/dmenu/&quot;&gt;dmenu&lt;/a&gt;&amp;nbsp;is used as a
+    launcher. Everything plays nicely together, and configuration
+    is a snap.&lt;br&gt;
+    &lt;br&gt;
+    Not running a regular desktop environment has not in any way
+    been an issue. I can still use any application (for example,
+    see &quot;gnome-screenshot&quot; used in the screenshot above). I don&#39;t
+    use graphical file managers as a general rule, and while I
+    could probably install nautilus or thunar, I&#39;ve found rox-filer
+    works just as well and doesn&#39;t require many dependencies.
+    Debian already includes the necessary wiring such that
+    installing i3-wm sets up a lightdm session.&lt;br&gt;
+    &lt;br&gt;
+    Suspend, shutdown, reboot, logout is handled via simple
+    keybindings in i3 or from a terminal - I have no problem typing
+    &quot;sudo shutdown -h now&quot;, and I can type it just as fast as
+    navigating to some menu.&lt;br&gt;
+    &lt;br&gt;
+    I found that I was confortable and productive in i3 within just
+    a few days - you definitely have to make a commitment to learn
+    keybindings and modes, and understand the container model, but
+    once you do it&#39;s amazing how quickly you can navigate
+    applications, workspaces, and desktops without ever having to
+    take your hands off the keyboard. Learning how to effectively
+    use workspaces for your workflow is super important - i3 allows
+    several different layouts and each workspace can have it&#39;s own.
+    Switching between layouts is a snap, and I find myself
+    switching, for example, from a tiling layout to a tabbed layout
+    to get a larger window. i3 remembers layouts, so switching back
+    to tiling puts everything back how it was before. Very
+    nice.&lt;br&gt;
+    &lt;br&gt;
+    Anyone who&#39;s ever seen my desktop knows that I like to have a
+    lot of terminal windows open, very specifically placed. In a
+    traditional window manager doing this is painful - either I
+    open a bunch of terminals, and manually move them around and
+    resize them (I absolutely &lt;b&gt;hate&lt;/b&gt; doing this), or write a
+    script that starts all the terminals with the right geometry
+    (also a painful operation, working out the geometry of each
+    window). With i3, and a tiling layout, you never worry about
+    window geometry or location - which is awesome. If I want 4
+    equally sized terminals on a workspace (with a horizontal
+    tiling default layout), I use the following keystrokes -
+    Super-Enter, Super-Enter, Super-v, Super-Enter, Super-Left,
+    Super-v, Super-Enter. Once you learn the keybindings and
+    container model, this sort of sequence becomes second nature
+    and takes just a few seconds.&lt;br&gt;
+    &lt;br&gt;
+    This configuration is really great and runs fast, with low
+    resource usage - very important when running on a Chromebook
+    (my install only requires around 2GB of disk) and gives more
+    resources to things such as Java VMs when running on my fat
+    work desktop.&lt;br&gt;
+    &lt;br&gt;
+    I&#39;ve decided not to dump my configuration in this post - code
+    in blogger doesn&#39;t work all that well (see my previous post)
+    and the configuration gets stale when I don&#39;t bother to update
+    it (also see my previous post, which does not reflect my final
+    configuration). Although it won&#39;t help with the latter, you can
+    find my configs, at least some version of it, &lt;a href=
+    &quot;https://github.com/scotte/linux-configs&quot;&gt;on github&lt;/a&gt;.&lt;br&gt;
+    &lt;br&gt;
+    The i3 website is here -&amp;nbsp;&lt;a href=
+    &quot;http://i3wm.org/&quot;&gt;http://i3wm.org/&lt;/a&gt;
+  &lt;/div&gt;
+</description>
+				<pubDate>Sun, 12 Jan 2014 17:30:00 +0000</pubDate>
+				<link>http://sail2software.com/2014/01/i3-tiling-window-manager-for-mortals.html</link>
+				<guid isPermaLink="true">http://sail2software.com/2014/01/i3-tiling-window-manager-for-mortals.html</guid>
+			</item>
+		
+	</channel>
+</rss>
