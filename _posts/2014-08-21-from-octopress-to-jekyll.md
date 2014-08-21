@@ -22,5 +22,4 @@ I think [this tiny rant](https://lauris.github.io/blogging/2014/08/16/jekyll-vs-
 summarizes it well.
 
 There may be some layout and content hiccups as I hack on things, but permalinks,
-rss feed, etc should all be good. Disqus comments won't be working right until I get
-everything migrated and reconfigured properly.
+rss feed, disqus, etc should all be good.
