@@ -4,6 +4,7 @@ title: "From Octopress to Jekyll"
 date: 2014-08-21 07:37:33 -0700
 comments: true
 categories:
+ - jekyll
 ---
 
 When I originally migrated this off blogger I used Octopress, which a coworker had
