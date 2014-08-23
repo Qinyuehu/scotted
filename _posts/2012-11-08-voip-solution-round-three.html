@@ -1,0 +1,94 @@
+---
+layout: post
+title: "VOIP solution round THREE"
+date: 2012-11-08T09:17:00-08:00
+comments: true
+categories:
+ - telephony
+ - communication
+---
+
+  <div class='post'>
+    <div class="separator" style=
+    "clear: both; text-align: center;">
+      <a href="https://s3.amazonaws.com/flowroute/static/en-us/images/flowroute_logo.gif" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" src="https://s3.amazonaws.com/flowroute/static/en-us/images/flowroute_logo.gif"></a>
+      <a href="https://www.callcentric.com/img/internet_phone_service.png" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" src="https://www.callcentric.com/img/internet_phone_service.png"></a>
+    </div><br>
+    For 19 months I'd been pretty happy with <a href=
+    "https://www.callcentric.com/">Callcentric</a> for our home
+    VOIP, but that all changed last month. For two weeks,
+    Callcentric was under a DDOS attack resulting in flaky service.
+    Then superstorm Sandy hit the East coast. Amazingly,
+    Callcentric has no redundancy or
+    disaster&nbsp;preparedness&nbsp;in their system - everything is
+    served out of a single datacenter in NYC with no backup in VOIP
+    infrastructure. During Sandy, they didn't even bother to point
+    their DNS to a temporary location so people could at least get
+    a webpage with status. They just went off the wire -
+    completely.<br>
+    <br>
+    To add insult to that injury, Callcentric made no attempt to
+    proactively notify customers about the DDOS events - they only
+    way I found out about it was because I found our phone wasn't
+    working, so logged into my dashboard to see what was up, and
+    only then got presented with a message. Not an acceptable
+    amount of communication.<br>
+    <br>
+    I can accept one of these failures, but all these together is a
+    show-stopper for me. Not having reliable (or any) phone service
+    for 3-4 weeks is just not a workable solution, nor is lack of
+    notifying customers. I&nbsp;say this not only as a customer,
+    but as a developer of SAAS apps - I know that building a system
+    capable of absorbing these types of failures is possible, if
+    not simple, and really a requirement in today's wired
+    world.<br>
+
+    <div>
+      <br>
+    </div>So a couple of weeks ago I signed up with <a href=
+    "https://www.flowroute.com/">Flowroute</a> and switched the ATA
+    over. So far, so good! Flowroute is not only cheaper than
+    Callcentric, but DIDs (inbound phone numbers) are allocated
+    instantly on demand, rather than having to wait a couple of
+    days for an assignment. As an added bonus, Flowroute supports
+    CNAM - which means you can add your name in outbound ANI
+    (CallerID).<br>
+    <br>
+    So far, the Flowroute experience has been excellent. I actually
+    looked at them early last year before choosing Callcentric, but
+    was put off by the $35 minimum payment. I was afraid that if I
+    didn't like it, or wasn't happy, that it would be a hassle to
+    get a refund. So far, I don't anticipate getting a refund, as
+    the service has been great. $35 goes a long way for BYOD VOIP.
+    Our DID is $1.39, as is E911 service. And per-minute rates are
+    about a penny (half of Callcentric).<br>
+    <br>
+    All the features I need are there - so feature parity, lower
+    prices, and <i>hopefully</i> better service makes this a
+    win.<br>
+    <br>
+    Configuring the Linksys PAP2TNA ATA was no problem even though
+    Flowroute doesn't document a specific configuration for this
+    device. They support the G729a codec. Call forwarding from
+    Google Voice seems slightly faster than with Callcentric.<br>
+    <br>
+    Having a dual port ATA is handy when switching service, as the
+    new service can be configured with no disruption to the
+    old.<br>
+    <br>
+    We'll see if in a few months, or a year, there's a round FOUR
+    to this post. I don't really know if Flowroute can provide an
+    effective level of redundancy - only time will tell, as anyone
+    who's been through a disaster can tell you,
+    disaster&nbsp;preparedness&nbsp;drills never cover
+    everything.<br>
+    <br>
+    You can read
+    <a href="http://www.sail2software.com/2011/03/voip-solution-to-replace-gizmo5.html">part one of this saga here</a>
+     and
+    <a href="http://www.sail2software.com/2011/03/voip-solution-to-replace-gizmo5-round.html">part two is here</a>.
+    <br>
+ <a href="http://www.sail2software.com/2014/07/voip-solution-round-four.html">And another update here</a> on using an Obihai OBi100 after my Linksys died.
+    <br>
+
+  </div>
