@@ -9,7 +9,8 @@ categories:
   - debian
 ---
 
-Here's the minimal steps required to install Jekyll on a Debian system.
+Here's the minimal steps required to install Jekyll on a Debian system so you can test
+things out before pushing up to github pages (or wherever).
 
 ```
 $ sudo aptitude install ruby ruby-dev rubygems nodejs
