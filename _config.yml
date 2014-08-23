@@ -1,11 +1,20 @@
-name: ScottE's blog - sail2software
-url: http://sail2software.com
-description: Random things - everything from sailing to software
+name: ScottE's Blog
+description: Random things - sail2software
+url: http://scotte.github.io
+baseurl: ''
 
-comments: true
+# Set the following to enable these features, leave as '' to disable them
+github: 'scotte'
+gaaccount: 'UA-21929297-1'
+disqus: 'sail2software'
+
 permalink: /:year/:month/:title.html
-paginate: 10
+paginate: 5
+comments: true
+
 highlighter: pygments
 markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile', 'stage']
+exclude: ['README.md', 'LICENSE']

@@ -23,12 +23,15 @@ that could be cooked with any chicken parts or preparation and in any grill or
 BBQ - gas, charcoal, a Traeger, etc.
 
 The WSM smoking away:
+
 ![WSM Smoking](/images/Chix_Smoking.jpg)
 
 Chicken cooking:
+
 ![Chicken Cooking](/images/Chix_Open.jpg)
 
 Finished product:
+
 ![Chicken Done](/images/Chix_Done.jpg)
 
 Give it a try, you won't be disappointed.

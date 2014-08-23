@@ -23,4 +23,5 @@ I think [this tiny rant](https://lauris.github.io/blogging/2014/08/16/jekyll-vs-
 summarizes it well.
 
 There may be some layout and content hiccups as I hack on things, but permalinks,
-rss feed, disqus, etc should all be good.
+rss feed, disqus, etc should all be good. I'm still playing around a bit with theming
+and styling.
