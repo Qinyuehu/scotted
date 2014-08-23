@@ -1,15 +1,15 @@
-name: My blog
-description: A jekyll theme
+name: ScottE's Blog
+description: Random things - sail2software
 url: http://scotte.github.io
-baseurl: /jekyll-clean
+baseurl: ''
 
 # Set the following to enable these features, leave as '' to disable them
-github: 'scotte/jekyll-clean'
-gaaccount: ''
-disqus: ''
+github: 'scotte'
+gaaccount: 'UA-21929297-1'
+disqus: 'sail2software'
 
-permalink: /:year/:month/:title
-paginate: 3
+permalink: /:year/:month/:title.html
+paginate: 5
 comments: true
 
 highlighter: pygments
