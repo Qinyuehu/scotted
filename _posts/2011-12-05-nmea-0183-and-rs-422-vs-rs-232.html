@@ -1,0 +1,169 @@
+---
+layout: post
+title: "NMEA-0183 and RS-422 vs RS-232"
+date: 2011-12-05T22:14:00-08:00
+comments: true
+categories:
+ - electronics
+ - gps
+ - communication
+---
+
+  <div class='post'>
+    <br>
+    Following is an article I wrote 3 or 4 years ago regarding
+    integrating marine navigation electronics via NMEA-0183.
+    Recently a friend and fellow sailor had run across this same
+    situation, so here you go Ron!<br>
+    <br>
+    <hr>
+    <br>
+    Questions seem to come up on occasion about wiring for NMEA,
+    and use of RS-232. Hopefully this article will help understand
+    the issue and be of use for other folks setting up an NMEA
+    network on their own boats.<br>
+    <br>
+    This discussion is explicitly about NMEA-0183 - not NMEA-0180,
+    NMEA-0182, NMEA-2000, SeaTalk, etc. I've tried to write this
+    technically correct, but hopefully more or less understandable
+    without getting too loose on the details. If I've been overly
+    sloppy, please don't hesitate to call me on them.<br>
+    <br>
+    Strictly speaking, the NMEA-0183 specification calls for an
+    RS-422 differential transmission system.<br>
+    <br>
+    What's thedifference between single-ended and differential
+    transmission?<br>
+    <br>
+    "single-ended" means that the signal is transmitted over a
+    single wire. The receiving end has to determine the voltage of
+    this signal, and to do so it needs a reference. In a
+    single-ended system, a "signal ground" is used as a reference.
+    The receiving end essentially measures the voltage on the wire
+    relative to this signal ground.<br>
+    <br>
+    RS-232 is single-ended. A transmit wire has voltage relative to
+    the signal ground. Note that in the case of a bi-directional
+    configuration (where a particular device is both sending and
+    receiving), the signal ground can be shared between the
+    two.<br>
+    <br>
+    The problem with single-ended transmission is that it can be
+    prone to noise. For example, if the cable crosses over other
+    cables, voltage can be inducted from the other cables and the
+    receiving end may not be able to distinguish the right signal
+    relative to signal ground. The same thing can happen if the
+    signal ground is not stable.<br>
+    <br>
+    Also, the RS-232 specification states that it is
+    point-to-point, so technically speaking you can only have a
+    single talker and a single listener. In other words, you cannot
+    connect more than two devices together.<br>
+    <br>
+    A "differential" transmission system works by transmitting over
+    two wires. When one wire sends a voltage, the other wire sends
+    the opposite voltage. The receiving end detects a transmission
+    by comparing the voltage differential between these two
+    transmit wires, instead of using a signal ground.<br>
+    <br>
+    A differential setup is much less prone to inductive noise
+    because an inducted voltage tends to affect both transmit wires
+    in the same way. The receiving end doesn't care because it's
+    only comparing the difference between the two wires - in other
+    words, the inductive noise will increase (or decrease) the
+    voltage in both wires, but the delta between the two will
+    remain nearly constant.<br>
+    <br>
+    Note that a proper differential transmission needs no signal
+    ground, and a bi-directional setup (where a device is both
+    transmitting and receiving) is supposed to require 4 wires, as
+    there is no common reference ground. Also note that many
+    "NMEA-0183" devices are loose on this. For example, both
+    fixed-mount Garmin GPS units I have onboard only provide a
+    single transmit and receive wire; power ground must be used for
+    reference.<br>
+    <br>
+    RS-422 uses differential transmission. Unlike RS-232, the
+    specification allows for multiple listeners - but you can still
+    only have a single talker. So, you can connect more than two
+    devices together, but only one can be a transmitter, the rest
+    must all be receivers.<br>
+    <br>
+    So why can I plug my NMEA-0183 GPS into my computer's RS-232
+    and get data? You can argue it's either good engineering or
+    just plain blind luck. RS-232 receivers detect the correct
+    voltage, even though we've technically muddled things by using
+    the power ground from the RS-422 transmitter as a signal ground
+    on the RS-232 receiver. Using the power ground wire as a signal
+    ground works because the RS-422 driver in the GPS bases it's
+    transmit voltages from this ground. In other words, the
+    combination of the right transmit leg of RS-422 and power
+    ground is effectively the same thing as the combination of
+    transmit on RS-232 and signal ground.<br>
+    <br>
+    The unfortunate thing about loose adherence to RS-422 and not
+    providing proper differential wiringis a much lower noise
+    threshold. Where a single-ended system will start to become
+    unreliable after maybe a couple dozen feet if you are lucky, a
+    differential system can be reliable for several thousand feet.
+    In an electrically noisy environment like a boat this can make
+    a big difference.<br>
+    <br>
+    <hr>
+    <br>
+    After writing this article, I received some feedback from
+    <a href="http://www.actisense.com/">Actisense</a>, a
+    manufacturer of marine electronics. Below are the comments from
+    Actisense - republished here without their permission but these
+    were originally public, so I'm sure they won't mind. They've
+    got some nice products in any event - worth checking out.<br>
+    <br>
+    <hr>
+    <br>
+
+    <blockquote class="tr_bq">
+      "So why can I plug my NMEA-0183 GPS into my computer's RS-232
+      and get data? You can argue it's either good engineering or
+      just plain blind luck."
+    </blockquote>Most modern RS232 chips don't actually need the
+    -ve swing to read a signal despite the requirement in the spec.
+    This is why, more often than not, connecting RS-422 to RS-232
+    will work. I argue good engineering!<br>
+    <br>
+    With the addition of isolated outputs to some products there is
+    another good engineering solution. The differential (RS-422)
+    system means that at one moment A is positive relative to B and
+    then B is positive relative to A.<br>
+    <br>
+    The key here is the word relative.<br>
+    <br>
+    If B is tied to ground and cannot go positive then A is forced
+    to go negative to B instead.<br>
+    <br>
+    The A line is now swinging from + to - volts around B.<br>
+    <br>
+    This can ONLY work if the outputs are isolated (floating).<br>
+    <br>
+    Tying an un-isolated B to Ground will cause something to burn
+    out.<br>
+    <br>
+    The B line will be driven and a large current will sink
+    straight to ground.<br>
+    <br>
+
+    <blockquote class="tr_bq">
+      "Strictly speaking, the NMEA-0183 specification calls for an
+      RS-422 differential transmission system."
+    </blockquote>NMEA 0183 version 2.0 onwards unequivocally
+    specifies meeting the differential RS-422 specification.
+    Previous to version 2.0 ground was used as a reference. The
+    earlier version is why new products can claim NMEA 0183 status
+    without meeting the RS-422 differential requirement without
+    breaking any rules, somewhat cheeky perhaps but certainly
+    allowed.<br>
+    <br>
+    <hr>
+    <br>
+    Hopefully this information helps other people who need to
+    integrate NMEA-0183 systems together.
+  </div>

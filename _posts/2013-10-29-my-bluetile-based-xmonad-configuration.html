@@ -1,0 +1,439 @@
+---
+layout: post
+title: "My BlueTile based xmonad configuration"
+date: 2013-10-29T20:32:00-07:00
+comments: true
+categories:
+ - linux
+ - software
+---
+
+  <div class='post'>
+    <b>UPDATE:
+    <a href="/2014/01/i3-tiling-window-manager-for-mortals.html">I've switched to the i3 window manager as of a couple of months back</a>.
+    i3 is really great - I recall someone
+    saying something along the lines of "xmonad is not a window
+    manager - it's a library for people who want to write their
+    own". This is very true, and I don't miss hacking around in
+    haskell since switching away from xmonad. Additionally, i3
+    doesn't require working around deficiencies in xmonad such as
+    spoofing the window manager to make Java applications
+    work</b><br>
+    <br>
+    <a href=
+    "http://i1280.photobucket.com/albums/a500/lscotte/Screenshot_zps5eb26347.png"
+    target="_blank"><img alt="Screenshot" border="0" src=
+    "http://i1280.photobucket.com/albums/a500/lscotte/Screenshot_zps5eb26347.png"
+    width="600"></a><br>
+    <br>
+    For the past couple of months I've been playing with several
+    different Linux distributions, desktop environments, and window
+    managers. I can backup, reinstall, and restore to a fully
+    working state - even when changing distributions - within two
+    or three hours, so the barrier of entry is fairly low for me. I
+    do limit myself to the world of Debian-based systems, since apt
+    is great and familiar, and there are lots of good reasons to
+    live somewhere in the Debian ecosystem.<br>
+    <br>
+    For several years I used Kubuntu, until KDE4 came out. KDE4 was
+    released way before it was ready, and while I slogged along
+    with it for about 6 months until I finally gave up and switched
+    to Xubuntu with XFCE. I really like XFCE for the most part -
+    it's simple and fast, but sometimes lacking in features and
+    feels a bit old. When Unity came out, I gave it a try. A very
+    short one. Unity is an unusable disaster. At this point I
+    decided to abandon Ubuntu and give LinuxMint a try, which I did
+    moving back to XFCE. I switched to Cinnamon when it came out,
+    and I have to say I really like Cinnamon in general - it's
+    based on Gnome Shell so is up-to-date, but it looks and works
+    like Gnome2, making it super accessible and usable.<br>
+    <br>
+    Although I think LinuxMint has some good points, it's based on
+    Ubuntu and there's very little reason to use it over Ubuntu (if
+    that's what you want to use), especially now that CInnamon is
+    available for several different distributions, including Ubuntu
+    as a PPA. So, I went back to Xubuntu with Cinnamon.<br>
+    <br>
+    But, I'm really not very happy with Ubuntu. Go take a look at
+    ubuntu.com - you won't find the word "linux" anywhere on that
+    page. That's not acceptable. Ubuntu is a Linux distribution and
+    they should advertise that fact. Ubuntu has shown poor
+    direction in other ways as well, for example the horrid Unity
+    interface and writing their own display system, Mir, to replace
+    Xorg.<br>
+    <br>
+    Ubuntu is a Debian distribution, so why not just install
+    Debian? I probably should have thought about this a long time
+    ago!<br>
+    <br>
+    I'm now running Debian testing (Jessie) on 4 different
+    computers - 3 are amd64 systems, 1 (the one I'm typing this on)
+    an arm based Chromebook.<br>
+    <br>
+    Debian was just as easy as LinuxMint or Ubuntu for installation
+    - and supports LUKS so I can run with full disk encryption on
+    my laptops (though not the Chromebook, unfortunately).
+    LUKS/dm-crypt is the only way to go - encfs and ecryptfs are
+    horrible hacks, in general. And all the packages I want are
+    available in base Debian.<br>
+    <br>
+    Jessie, even though it's "testing", does still lag a bit behind
+    other distributions in some ways, but I've found it recent
+    enough for everything I do - and not as risky as Debian
+    unstable, Sid. I wasn't interested in Debian stable, as it's
+    just too far behind for me.<br>
+    <br>
+    OK, so after installing Debian I went with XFCE, which is a
+    nice choice because all my hardware supports it, so I can use
+    the same configuration and setup everywhere, even the
+    Chromebook. XFCE is also familiar to me, having used it for a
+    couple of years, generally happily.<br>
+    <br>
+    For fun, I decided to give Gnome Shell a try. Many people have
+    been pretty negative about Gnome Shell, but I actually found it
+    to be pretty nice and usable, after I installed several
+    extensions to get some better usability. With Gnome Shell you
+    have to think a little bit differently about window management
+    and make good use of workspaces to organize things. One thing I
+    didn't like about Gnome Shell was how much I had to move the
+    mouse to do things.<br>
+    <br>
+    Still, I managed to get a pretty usable workflow out of Gnome
+    Shell, and played with some nice tiling extensions - shellshape
+    and shelltile, which sort of worked. However shellshape doesn't
+    support multiple monitors (which I like on my work system), and
+    shelltile was too mousy though a nice idea. If you are
+    interesting in tiling window managers on Gnome Shell, and only
+    have one monitor, give shellshape a try - it's pretty nice,
+    with some shortcomings.<br>
+    <br>
+    One issue with Gnome Shell is that it doesn't work on my
+    Chromebook, since it doesn't have accelerated video (currently,
+    until I get armsoc running on it). The fallback mode is usable,
+    much like Gnome 2, but then I also couldn't run the nifty Gnome
+    Shell extensions I discovered.<br>
+    <br>
+    I've always been intrigued by tiling window managers, which
+    automatically arrange windows such that nothing overlaps, and
+    which typically have very simple interfaces that maximize
+    screen real estate (for example, by not having title bars on
+    windows). They also tend to be driven by keyboard, minimizing
+    mouse usage.<br>
+    <br>
+    I've tried xmonad before, but was scared away by having to
+    basically write a configuration in haskell. I tried a few other
+    tiling window managers as well, but never found any that I
+    really liked or felt like I wanted to invest the time in
+    them.<br>
+    <br>
+    This takes me back to shellshape - which uses the same
+    keybindings for BlueTile, a xmonad-based tiling window manager.
+    I liked the key bindings in shellshape, so I thought maybe that
+    would make BlueTile accessible. I was also curious if I could
+    run xmonad it with XFCE so I could have my usual panels and a
+    nice menu (the menu plugins for xmonad are... primitive at
+    best).<br>
+    <br>
+    So how did my experience go? Well, here I am typing this on my
+    Chromebook, running XFCE and xmonad with a BlueTile based
+    configuration. I used this same configuration on my work laptop
+    and desktop all day today as well, and found it very productive
+    and fast, but I sure have a lot of new keybindings to
+    remember!<br>
+    <br>
+    Below is my <b>.xmonad/xmonad.hs</b> file. In order to use this
+    in Debian, all I needed to do was install the <b>xmonad</b>
+    package, as it already has BlueTile in the base xmonad package!
+    Note that there is a separate bluetile package - you can
+    install this, but you will not be able to apply my customized
+    settings, if you so desire.<br>
+    <br>
+    It took me many hours to get this configuration working and
+    looking the way I wanted to. I'm not completely happy with my
+    approach to eliminating the window title bars, but it does
+    work, though it's a bit hackish - and relies on having certain
+    colors configured in XFCE (you may need to change "#cecece"
+    below).<br>
+    <br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    --</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- My BlueTile Configuration</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    --</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- BlueTile is a great place to start using xmonad, but I
+    wanted to customize a number of things. I didn't feel like
+    writing</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- my own xmonad implementation from scratch, so I use the
+    xmonad-contrib BlueTile configuration with a few modifications
+    to</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- make it work the way I want to. I'm using this inside an
+    XFCE session, which provides my panels.</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    --</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- I'm new to xmonad and haskell, so this is a hack at best,
+    but it gives me the look and behavior I want - and was a
+    great</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- way to ease from BlueTile into a more custom xmonad
+    configuration.</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    --</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- My blog: http://sail2software.com</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    --</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- Differences from a vanilla BlueTile config:</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- &nbsp; * No titlebar (there's probably a better way to do
+    this)</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- &nbsp; * focusFollowsMouse is enabled</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- &nbsp; * pointer follows focused window (middle of
+    window)</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- &nbsp; * WM is spoofed to LG3D so Java apps work</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- &nbsp; * terminal is set to xfce4-terminal</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- &nbsp; * focusedBorderColor is red</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- &nbsp; * borderWidth is 2</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    --</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    -- Adapted from BlueTile (c) 2009 Jan Vornberger
+    http://bluetile.org</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    --</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">import
+    XMonad hiding ( (|||) )</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">import
+    XMonad.Layout.BorderResize</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.BoringWindows</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.ButtonDecoration</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.Decoration</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.DecorationAddons</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.DraggingVisualizer</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.LayoutCombinators</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.Maximize</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.Minimize</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.MouseResizableTile</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.Named</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.NoBorders</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.PositionStoreFloat</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Layout.WindowSwitcherDecoration</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">import
+    XMonad.Hooks.CurrentWorkspaceOnTop</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Hooks.EwmhDesktops</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Hooks.ManageDocks</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    import XMonad.Hooks.SetWMName</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">import
+    XMonad.Actions.UpdatePointer</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">import
+    XMonad.Config.Bluetile</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">import
+    XMonad.Util.Replace</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">myTheme
+    = defaultThemeWithButtons {</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; activeColor = "red",</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; activeTextColor = "red",</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; activeBorderColor = "red",</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; inactiveColor = "#cecece",</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; inactiveTextColor = "#cecece",</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; inactiveBorderColor = "#cecece",</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; decoWidth = 1,</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; decoHeight = 1</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    }</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">myLayoutHook
+    = avoidStruts $ minimize $ boringWindows $ (</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; named "Floating" floating |||</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; named "Tiled1" tiled1 |||</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; named "Tiled2" tiled2 |||</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; named "Fullscreen" fullscreen</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    &nbsp; &nbsp; &nbsp; )</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; where</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; floating =
+    floatingDeco $ maximize $ borderResize $
+    positionStoreFloat</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tiled1 = tilingDeco $
+    maximize $ mouseResizableTileMirrored</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tiled2 = tilingDeco $
+    maximize $ mouseResizableTile</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; fullscreen =
+    tilingDeco $ maximize $ smartBorders Full</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tilingDeco l =
+    windowSwitcherDecorationWithButtons shrinkText myTheme
+    (draggingVisualizer l)</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; floatingDeco l =
+    buttonDeco shrinkText myTheme l</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    <br></span><span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">main
+    = replace &gt;&gt; xmonad bluetileConfig {</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; layoutHook = myLayoutHook,</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; logHook = currentWorkspaceOnTop &gt;&gt;
+    ewmhDesktopsLogHook &gt;&gt; updatePointer (Relative 0.5
+    0.5),</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; focusFollowsMouse = True,</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; borderWidth = 2,</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; focusedBorderColor = "red",</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; terminal = "xfce4-terminal",</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    &nbsp; &nbsp; startupHook = setWMName "LG3D"</span><br>
+    <span style=
+    "font-family: Courier New, Courier, monospace; font-size: x-small;">
+    }</span><br>
+
+    <div>
+      <br>
+    </div>
+  </div>
