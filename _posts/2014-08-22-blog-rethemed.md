@@ -16,7 +16,7 @@ It's designed to be clean and simple, and with modular templates to reduce the a
 of duplicated code.
 
 You can [get it from github here](https://github.com/scotte/jekyll-clean). I'm still
-tweaking various things about the theme - so remember to rebase often. Pull requests
+tweaking various things about the theme - so remember to merge often. Pull requests
 are welcome as always!
 
 I'll be submitting it to the Jekyll themes project once I'm happy that it's in a stable
