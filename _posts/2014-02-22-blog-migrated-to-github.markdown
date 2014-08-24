@@ -18,3 +18,6 @@ I'll write more about the reasons for this later, as well as mention which
 services I've migrated to (email, search, browser, etc).
 
 Please bear with me as I finish migrating all the content and fix up some formatting, images, and such here and there...
+
+**Update**: Please see newer posts as I have abandoned Octopress for straight
+Jekyll. Octopress, as it turns out, makes things harder, not simpler.
