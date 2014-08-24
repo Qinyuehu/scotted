@@ -21,7 +21,7 @@ I ultimately have to maintain now.
 * Although I initially thought the name sail2software was somewhat catchy, over time I
 grew less fond of it. Ultimately, this is a space of various personal thoughts and
 reference, it's not a company or organization - so might as well just associate it
-directly with myself.
+directly with myself. It doesn't matter how tired I am with my name, it's my name. :-)
 
 * Having a CNAME on a user page forces *all* project github pages for a particular
 github user to use that CNAME (they are relative URLs off it). I found this a bit
