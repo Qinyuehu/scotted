@@ -56,7 +56,7 @@ do our best to resolve this problem quickly.
 Update
 ======
 
-Microsoft has no settled with no-ip.com and admitted wrongdoing. The
+Microsoft has now settled with no-ip.com and admitted wrongdoing. The
 details of the settlement were not made public, but I sure hope it was enough
 money.
 
