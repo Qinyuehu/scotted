@@ -41,7 +41,7 @@ info is now a bit more generic. Oh well...
 
 Now that I've had a couple of days on straight Jekyll, I am super super happy I made
 the switch off Octopress. I no longer have to run rake commands to do anything, or
-manage the separate deployment branch that it uses. I just check into **master** and
+manage the separate deployment branch that it uses. I just push to **master** and
 the rest is magic, I don't have to do anything else. Love that!
 
 ```
