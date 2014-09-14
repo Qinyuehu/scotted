@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jekyll Clean Theme Publshed on jekyllthemes.org"
+title: "Jekyll Clean Theme Published on jekyllthemes.org"
 date: 2014-09-14 08:35:36 -0700
 comments: true
 categories:
