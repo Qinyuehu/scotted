@@ -36,7 +36,7 @@ auto wlan0
 allow-hotplug wlan0
 iface wlan0 inet manual
     wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
-iface default inet dhcp
+iface wlan0 inet dhcp
 iface wlan0 inet6 auto
 
 ```
@@ -61,7 +61,9 @@ on a running system with NetworkManager or wicd. So, in summary - there is no ad
 risk in using wpasupplicant directly on a properly secured system.
 
 wpasupplicant manages wifi, but not dhcp (where NetworkManager and wicd handle both).
-Sometimes, this means I don't get an ipv4 DHCP address until I run:
+Sometimes, this means I don't get an ipv4 DHCP address until I restart dhcp. Although
+I only need to stop and restart **dhclient**, I tend to prefer using **ifup** since
+it's less to type:
 
 ```
 $ sudo ifup wlan0
