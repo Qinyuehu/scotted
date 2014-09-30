@@ -59,9 +59,9 @@ If you use nicstat, you may find this repository handy, rather than having to
 apply several patches manually.
 
 ```
-$ nicstat -l
+$ nicstat -S eth0:2000 -l
 Int      Loopback   Mbit/s Duplex State
-eth0           No     1000   full    up
+eth0           No     2000   full    up
 lo            Yes        -   unkn    up
 
 $ nicstat -n 1
