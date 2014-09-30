@@ -17,8 +17,8 @@ The Whole Story
 
 I recently learned about a useful performance monitoring utility that I wasn't
 aware of - [nicstat](https://sourceforge.net/projects/nicstat/). Somewhat
-coincidentially, I also discovered that my coworker
-[Brendan Gregg](http://brendangregg.com) was coauther of this utility for
+coincidentally, I also discovered that my coworker
+[Brendan Gregg](http://brendangregg.com) was coauthor of this utility for
 Solaris back when he worked at Sun.
 
 nicstat is modeled very much after iostat, vmstat, and similar tools. It works
@@ -28,7 +28,7 @@ AWS imposed bandwidth throttles, but I thought it was strange that nicstat
 reported an interface speed of 1.410Gbps when ethtool reports a 10Gbps interface
 for c3.4xl - the instance type I was running this on.
 
-Strange, but since nicstat has a -S option where the bandwidth can be overriden,
+Strange, but since nicstat has a -S option where the bandwidth can be overridden,
 no problem. So I tried that - using measured bandwidth from iperf, but that didn't
 work either and nicstat kept reporting a 1.410Gbps rate.
 
