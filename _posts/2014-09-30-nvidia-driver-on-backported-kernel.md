@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Nvidia kernel on backported kernel in Wheezy"
+title: "Nvidia driver on backported kernel in Wheezy"
 date: 2014-09-30 16:21:58 -0700
 comments: true
 categories:
