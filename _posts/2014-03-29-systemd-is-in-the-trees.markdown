@@ -165,15 +165,10 @@ SysVStartPriority=99
 WantedBy=multi-user.target
 ```
 
-This file needs to be executable, or systemd won't run it (I discovered this
-the hard way), and we need to tell systemd to enable our new service. I
-received a comment that the /etc/systemd/system/*.server files actually don't
-need to be executable. Perhaps something has changed, but I found it did need
-to be executable, and all the other .service files from official packages were
-executable as well. I would simply suggest setting the mode for rc-local.service
-to be consistent with all the other .service files.
+(Note: In a previous version of systemd service files needed to be
+executable. This is no longer the case, so this article has been
+updated to reflect this).
 
-    $ sudo chmod +x /etc/systemd/system/rc-local.service
     $ sudo systemctl enable rc-local
 
 After rebooting, you can use **systemctl** to check that everything worked
