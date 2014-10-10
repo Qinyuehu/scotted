@@ -24,7 +24,7 @@ think this is a good way to test, and if the system boots OK and everything
 works as expected, you can then go all-in and enable systemd by default.
 
 I also discovered the debian systemd implementation doesn't run **/etc/rc.local**
-by default, but that's easy to solve as well.
+by default, but that's easy to solve as well. (IMPORTANT: This is no longer the case.)
 
 The debian wiki has
 [excellent documentation on systemd](https://wiki.debian.org/systemd) and
@@ -136,6 +136,13 @@ Note that yours may look different.
 
 Configuring rc.local under systemd
 ----------------------------------
+
+**IMPORTANT: The following section should no longer be necessary now that this
+functionality is there by default. If you are using an older version of systemd,
+or you find that there is no built-in service for rc.local, the following is
+still useful. Not sure if you already have an rc.local service? Run the 
+systemctl status command shown below - if you have the service, it will be
+running, if you don't then that command will result in error.**
 
 Finally, let's get **rc.local** working under systemd.
 
