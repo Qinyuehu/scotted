@@ -6,6 +6,13 @@ comments: true
 categories:
 ---
 
+**Update: This is no longer necessary. When I wrote this, the current version
+of nvidia-kernel-dkms was 319.82. The current version in the Wheezy Debian
+repository (as I write this comment) is 340.65 which resolves this bug, at
+least on the current backported kernel (3.16.0-0.bpo-4). If you are still
+encountering this issue, please make sure you are on both the latest
+kernel and nvidia driver.**
+
 If you like to use a backported kernel in Debian Wheezy, like I do, and have
 systems with Nvidia graphics cards, you've likely discovered an incompatibility
 between recent kernels (since 3.13) and the Nvidia driver.
