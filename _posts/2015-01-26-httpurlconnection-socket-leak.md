@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CLOSE_WAIT socket leak in java.net.HttpURLConnection"
-date: 2015-01-25 11:28:01 -0700
+date: 2015-01-26 11:28:01 -0700
 comments: true
 categories:
 ---
