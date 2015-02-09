@@ -60,6 +60,10 @@ see the key if they had root access - but I can also steal that directly from wp
 on a running system with NetworkManager or wicd. So, in summary - there is no additional
 risk in using wpasupplicant directly on a properly secured system.
 
+**Update 2015-02-08:** See [here](/2015/02/dhclient-on-wpa-supplicant-associate) for
+an update for the following, which automates this so manually restarting the interface
+is no longer necessary.
+
 wpasupplicant manages wifi, but not dhcp (where NetworkManager and wicd handle both).
 Sometimes, this means I don't get an ipv4 DHCP address until I restart dhcp. Although
 I only need to stop and restart **dhclient**, I tend to prefer using **ifup** since
