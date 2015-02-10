@@ -31,7 +31,7 @@ if [ "$CMD" = "CONNECTED" ]; then
 fi
 
 if [ "$CMD" = "DISCONNECTED" ]; then
-    /bin/kill $(cat /run/dhclient.${IFNAME}.pid)
+    /bin/kill $(/bin/cat /run/dhclient.${IFNAME}.pid)
 fi
 ```
 
