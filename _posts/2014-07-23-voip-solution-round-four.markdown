@@ -12,7 +12,7 @@ Oh no, if you've been reading this blog for a long time I already know what you
 are thinking - here we go,
 [switching VOIP providers yet again](http://www.sail2software.com/2012/11/voip-solution-round-three.html).
 Don't worry, [Flowroute](http://www.flowroute.com) continues to be my SIP
-provider of choice (they are, quite simple, awesome).
+provider of choice (they are, quite simply, awesome).
 
 No, this round was prompted by a hardware failure when our 5 year old Linksys
 PAP2TNA bit the dust. A couple of days ago my wife went to use the phone - so
