@@ -117,4 +117,7 @@ the word out, as all of their web pages still say that this is a feature of
 the device - certainly they sell more devices with this false claim in their
 advertising, but I wonder how many get returned solely because of it. At any
 rate, it's yet another case of Google killing off a useful service, but I can
-see how they weren't making any money off it.
+see how they weren't making any money off it. **Update 2015-02-16: Google Voice
+through Obihai might be available again, according to what I read at the ObiTalk
+site, but I haven't tried it to validate, as it requires flashing a special
+firmware on the Obihai and what I have is already working...**
