@@ -64,7 +64,7 @@ useful data nonetheless".
 Turns out that whoever wrote HttpURLConnection (who I refer to as
 "bonehead") decided to implement it sort of emulating stdout/stderr -
 if a request is a successful HTTP result code, then the output goes
-into one stream, but if it wiss an error then the output goes into a
+into one stream, but if it is an error then the output goes into a
 different stream. This doesn't really help with coding because either
 way you still have to check the HTTP response code to see if it failed
 or not, but with this implementation you need another whole code block
